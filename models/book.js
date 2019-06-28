@@ -24,10 +24,21 @@ module.exports = function(sequelize, DataTypes) {
     pages: {
       type: DataTypes.INTEGER,
       allowNull: false
+    },
+    comments: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+      validate: {
+        len: [1]
+      }
+    },
+    rating: {
+      type: DataTypes.INTEGER,
+      allowNull: false
     }
   });
-  Post.associate = function(models) {
-    Post.belongsTo(models.Author, {
+  Book.associate = function(models) {
+    Book.belongsTo(models.Reader, {
       foreignKey: {
         allowNull: false
       }

@@ -4,10 +4,9 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   Reader.associate = function(models) {
-    Reader.hasMany(models.Post, {
+    Reader.hasMany(models.Book, {
       onDelete: "cascade"
     });
   };
-
   return Reader;
 };
