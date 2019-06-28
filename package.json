@@ -7,21 +7,13 @@
     "start": "node server.js",
     "lint": "eslint --quiet .",
     "fix": "eslint --fix .",
-<<<<<<< HEAD
-    "test": "npm run lint && cross-env NODE_ENV=test mocha -u tdd --reporter spec --exit"
-=======
     "test": "npm run lint && cross-env NODE_ENV=test mocha -u bdd --reporter spec --exit"
->>>>>>> master
   },
   "license": "ISC",
   "dependencies": {
     "dotenv": "^8.0.0",
     "express": "^4.17.0",
     "express-handlebars": "^3.1.0",
-<<<<<<< HEAD
-=======
-    "lint": "^0.7.0",
->>>>>>> master
     "mysql2": "^1.6.5",
     "sequelize": "^5.8.6"
   },
@@ -34,9 +26,6 @@
     "eslint-plugin-prettier": "^3.1.0",
     "mocha": "^6.1.4",
     "prettier": "^1.17.1"
-<<<<<<< HEAD
-  }
-=======
   },
   "directories": {
     "test": "test"
@@ -51,5 +40,4 @@
     "url": "https://github.com/aaanderson1/project2/issues"
   },
   "homepage": "https://github.com/aaanderson1/project2#readme"
->>>>>>> master
 }
