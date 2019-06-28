@@ -1,21 +1,24 @@
 {
   "development": {
     "username": "root",
-    "password": null,
+    "password": "omologator",
     "database": "exampledb",
     "host": "localhost",
+    "port": 3306,
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": null,
+    "password": "omologator",
     "database": "testdb",
     "host": "localhost",
+    "port": 3306,
     "dialect": "mysql",
     "logging": false
   },
   "production": {
     "use_env_variable": "JAWSDB_URL",
+    "port": 3306,
     "dialect": "mysql"
   }
 }
