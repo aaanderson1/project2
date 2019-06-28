@@ -23,8 +23,8 @@ module.exports = function(sequelize, DataTypes) {
     },
     pages: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-  },
+      allowNull: false
+    }
   });
   Post.associate = function(models) {
     Post.belongsTo(models.Author, {
@@ -32,15 +32,6 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: false
       }
     });
-  }
-return Book;
+  };
+  return Book;
 };
-
-
-// title 
-// book img
-// author
-// genre 
-// pages
-// personal_review
-// comments
