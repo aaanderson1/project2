@@ -11,14 +11,14 @@ author_lastname varchar(255) DEFAULT NULL,
 genre varchar(255) DEFAULT NULL,
 page_count int(5000) DEFAULT NULL,
 comments varchar(255) DEFAULT NULL,
-rating int(10) DEFAULT NOT NULL,
+rating int(5) DEFAULT NOT NULL,
 image_path varchar(255) DEFAULT NULL,
   PRIMARY KEY (id),
   UNIQUE KEY ID_UNIQUE (id)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=ascii;
 
 insert into books (author_firstname, author_lastname, genre, page_count, comments, rating, image_path)
-values ("Eloquent Javascript 3rd Edition", "Marijn", " Haverbeke", "Educational", 472, "informative and detailed", 10, "");
+values ("Eloquent Javascript 3rd Edition", "Marijn", " Haverbeke", "Educational", 472, "informative and detailed", 5, "https://eloquentjavascript.net/img/cover.jpg");
 
 insert into books (author_firstname, author_lastname, genre, page_count, comments, rating, image_path)
 values ("Native Son", "Richard", "Wright", "Autobiography", 544, "Very tragic, very well written, still relevant today (edited)", 5, "");
