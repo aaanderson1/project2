@@ -1,10 +1,9 @@
-<<<<<<< HEAD
 .list-group-item {
   line-height: 2.5;
 }
 
-#landing{
-  height: 100vh;
+#landingLibrary{
+  height: 225vh;
   background-image: url("https://i.pinimg.com/originals/b4/9d/4a/b49d4a3318145fd126add231463e31aa.png");
   background-position: center;
   background-size: cover;
@@ -20,7 +19,7 @@
 
 .wrappersubmitform {
   width: 960px;
-  height: 500px;
+  height: 1300px;
   background-color: #ffffff;
   margin: 0 auto;
   padding: 20px;
@@ -39,49 +38,4 @@ hr.withstyle {
   border-radius: 20px; 
 } 
 
-/* label color */
-.input-field label {
-  color: #000;
-}
-/* label focus color */
-.input-field input[type=text]:focus + label {
-  color: #000;
-}
-/* label underline focus color */
-.input-field input[type=text]:focus {
-  border-bottom: 1px solid #000;
-  box-shadow: 0 1px 0 0 #000;
-}
-/* valid color */
-.input-field input[type=text].valid {
-  border-bottom: 1px solid #000;
-  box-shadow: 0 1px 0 0 #000;
-}
-/* invalid color */
-.input-field input[type=text].invalid {
-  border-bottom: 1px solid #000;
-  box-shadow: 0 1px 0 0 #000;
-}
-/* icon prefix focus color */
-.input-field .prefix.active {
-  color: #000;
-=======
-.list-group-item {
-  line-height: 2.5;
-}
 
-#landing{
-  height: 100vh;
-  background-image: url("https://i.pinimg.com/originals/b4/9d/4a/b49d4a3318145fd126add231463e31aa.png");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  z-index: -1;
- opacity: 0.9;
-}
-
-.h1 {
-  color: 
->>>>>>> master
-}

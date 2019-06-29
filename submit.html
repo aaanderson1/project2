@@ -36,7 +36,7 @@
             </nav>
         </div>
         <!--Begin submit form-->
-        <div class="section" id="landing">
+        <div class="section" id="landingLibrary">
                 <div class = "wrappersubmitform blue-grey lighten-3">                    
                        <h5 id="mainText" class="fas fa-plus center" style="color: #eceff1"><b> ADD A <b> BOOK </b></h5>
                         <hr class = "hr.withstyle"></hr>
@@ -126,15 +126,61 @@
               </div>
             </form>
           </div>
-    <!--Begin star rating-->
-    <h6>Rating</h6>
-<fieldset class="rating">
-        <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
-        <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
-        <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
-        <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
-        <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
-    </fieldset>
+<!--Begin Rating row-->
+<div class = "row">
+    <h6>Rating (5 = awesome; 1 = sucks)</h6>
+        <form action="#">
+            <label>
+        <input type="checkbox" id="star1"/>
+        <span>One</span>
+      </label>
+        </form>
+        <form action="#">
+                <label>
+            <input type="checkbox" id="star2"/>
+            <span>Two</span>
+          </label>
+            </form>
+            <form action="#">
+                    <label>
+                <input type="checkbox" id="star3"/>
+                <span>Three</span>
+              </label>
+                </form>
+                <form action="#">
+                        <label>
+                    <input type="checkbox" id="star4"/>
+                    <span>Four</span>
+                  </label>
+                    </form>
+                    <form action="#">
+                            <label>
+                        <input type="checkbox" id="star5"/>
+                        <span>Five</span>
+                      </label>
+                        </form>
+<!--Begin image URL row-->
+<div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s12">
+              <i class="material-icons prefix">mode_edit</i>
+              <input type = "text" id="bookTitle" type="text" class="validate">
+              <label for="icon_prefix"></label>
+              <h6>Image URL</h6>
+            </div>
+          </div>
+        </form>
+      </div>
+
+<!--Begin submit buttons row-->
+<div class = "row center">
+    <button class="btn-large waves-effect waves-light blue-grey darken-1 fas fa-plus" id = "#addCurrentRead"> Add to 'Currently Reading'</button>
+    <button class="btn-large waves-effect waves-light blue-grey darken-1 fas fa-plus" id = "#addAlreadyRead"> Add to 'Already Read'</button>
+    <button class="btn-large waves-effect waves-light blue-grey darken-1 fas fa-plus" id = "#addWishlist"> Add to 'Wishlist'</button>
+</div>
+</div>
+
 
         </div> 
  <!--Begin currently reading section-->       
