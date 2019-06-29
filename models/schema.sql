@@ -11,7 +11,7 @@ author_lastname varchar(255) DEFAULT NULL,
 genre varchar(255) DEFAULT NULL,
 page_count int(5000) DEFAULT NULL,
 comments varchar(255) DEFAULT NULL,
-rating int(10) DEFAULT NOT NULL,
+rating int(5) DEFAULT NOT NULL,
 image_path varchar(255) DEFAULT NULL,
   PRIMARY KEY (id),
   UNIQUE KEY ID_UNIQUE (id)
