@@ -1,3 +1,9 @@
+DROP DATABASE IF EXISTS exampledb;
+CREATE DATABASE exampledb;
+
+DROP DATABASE IF EXISTS testdb;
+CREATE DATABASE testdb;
+=======
 DROP DATABASE IF EXISTS pageturner_db;
 CREATE DATABASE pageturner_db;
 
@@ -16,6 +22,8 @@ image_path varchar(255) DEFAULT NULL,
   PRIMARY KEY (id),
   UNIQUE KEY ID_UNIQUE (id)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=ascii;
+
+=======
 
 insert into books (author_firstname, author_lastname, genre, page_count, comments, rating, image_path)
 values ("Eloquent Javascript 3rd Edition", "Marijn", " Haverbeke", "Educational", 472, "informative and detailed", 5, "https://eloquentjavascript.net/img/cover.jpg");

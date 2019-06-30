@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Turner | A book-saver app!</title>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!--<script type="text/javascript" src="public/js/submit.js"></script>-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+   <!--<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> --> 
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="public/styles/styles.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+
+<body>
+    <script src="public/js/submit.js"></script>
+    <script src="public/js/materialize.js"></script>
+    <script src="public/js/materialize.min.js"></script>
+    <div class="navbar-fixed">
+            <nav class="blue-grey darken-1 body">
+                <div class="container">
+                    <div class="nav-wrapper header">
+                        <a href="#" class="brand-logo"></a>
+                        <ul class="right hide-on-med-and-down" id="navList">
+                            <li><a href="#landing">Home</a></li>
+                            <li><a href= "#add">Add A Book</a></li>
+                            <li><a href="#current">Currently Reading</a></li>
+                            <li><a href="#alreadyRead">Already Read</a></li>
+                            <li><a href="#wishlist">Book Wishlist</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <!--Begin submit form-->
+        <div class="section" id="landingLibrary">
+                <div class = "wrappersubmitform blue-grey lighten-3">                    
+                       <h5 id="mainText" class="fas fa-plus center" style="color: #eceff1"><b> ADD A <b> BOOK </b></h5>
+                        <hr class = "hr.withstyle"></hr>
+                <!--Begin user name input-->
+                <div class="row">
+                        <form class="col s12">
+                          <div class="row">
+                            <div class="input-field col s6">
+                              <i class="material-icons prefix">account_circle</i>
+                              <input type = "text" id="userName" type="text" class="validate">
+                              <label for="icon_prefix"></label>
+                              <h6>Your First Name</h6>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                <!--Begin book title-->
+                <div class="row">
+                        <form class="col s12">
+                          <div class="row">
+                            <div class="input-field col s12">
+                              <i class="material-icons prefix">mode_edit</i>
+                              <input type = "text" id="bookTitle" type="text" class="validate">
+                              <label for="icon_prefix"></label>
+                              <h6>Book Title</h6>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                <!--Begin author name-->
+                <div class="row">
+                        <form class="col s6">
+                          <div class="row">
+                            <div class="input-field col s6">
+                              <i class="material-icons prefix">mode_edit</i>
+                              <input type = "text" id="authorFirst" type="text" class="validate">
+                              <label for="icon_prefix"></label>
+                              <h6>Author First Name</h6>
+                            </div>
+                          </div>
+                        </form>
+                        <form class="col s6">
+                                  <div class="input-field col s6">
+                                    <i class="material-icons prefix">mode_edit</i>
+                                    <input type = "text" id="authorLast" type="text" class="validate">
+                                    <label for="icon_prefix"></label>
+                                    <h6>Author Last Name</h6>
+                                  </div>
+                              </form>
+                      </div>
+                <!--Begin genre and number of pages row-->
+                <div class = "row">
+                 <!-- Genre Dropdown Trigger -->
+  <a class="dropdown-trigger btn btn-large waves-effect blue-grey darken-1" href="#" data-target="genre">Genre</a>
+
+  <!-- Dropdown Structure -->
+  <ul id="genre" class="dropdown-content">
+    <li><a href="#!">Fiction</a></li>
+    <li><a href="#!">Non-fiction</a></li>
+    <li class="divider" tabindex="-1"></li>
+    <li><a href="#!">Thriller/<br>Suspense</a></li>
+    <li><a href="#!">Action/<br>Adventure</a></li>
+    <li><a href="#!">Children</a></li>
+    <li><a href="#!">Romance</a></li>
+    <li><a href="#!">Self Help</a></li>
+    
+  </ul>
+  <form class="col s6">
+        <div class="input-field col s6">
+          <i class="material-icons prefix">mode_edit</i>
+          <input type = "text" id="authorLast" type="text" class="validate">
+          <label for="icon_prefix"></label>
+          <h6>Number of Pages</h6>
+        </div>
+    </form>
+
+                </div>
+    <!--Begin comments section-->
+    <div class="row">
+            <form class="col s12">
+              <div class="row">
+                <div class="input-field col s12">
+                  <textarea id="comments" class="materialize-textarea"></textarea>
+                  <label for="textarea1"></label>
+                  <h6>Comments/Notes</h6>
+                </div>
+              </div>
+            </form>
+          </div>
+<!--Begin Rating row-->
+<div class = "row">
+    <h6>Rating (5 = awesome; 1 = sucks)</h6>
+        <form action="#">
+            <label>
+        <input type="checkbox" id="star1"/>
+        <span>One</span>
+      </label>
+        </form>
+        <form action="#">
+                <label>
+            <input type="checkbox" id="star2"/>
+            <span>Two</span>
+          </label>
+            </form>
+            <form action="#">
+                    <label>
+                <input type="checkbox" id="star3"/>
+                <span>Three</span>
+              </label>
+                </form>
+                <form action="#">
+                        <label>
+                    <input type="checkbox" id="star4"/>
+                    <span>Four</span>
+                  </label>
+                    </form>
+                    <form action="#">
+                            <label>
+                        <input type="checkbox" id="star5"/>
+                        <span>Five</span>
+                      </label>
+                        </form>
+<!--Begin image URL row-->
+<div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s12">
+              <i class="material-icons prefix">mode_edit</i>
+              <input type = "text" id="bookTitle" type="text" class="validate">
+              <label for="icon_prefix"></label>
+              <h6>Image URL</h6>
+            </div>
+          </div>
+        </form>
+      </div>
+
+<!--Begin submit buttons row-->
+<div class = "row center">
+    <button class="btn-large waves-effect waves-light blue-grey darken-1 fas fa-plus" id = "#addCurrentRead"> Add to 'Currently Reading'</button>
+    <button class="btn-large waves-effect waves-light blue-grey darken-1 fas fa-plus" id = "#addAlreadyRead"> Add to 'Already Read'</button>
+    <button class="btn-large waves-effect waves-light blue-grey darken-1 fas fa-plus" id = "#addWishlist"> Add to 'Wishlist'</button>
+</div>
+</div>
+
+
+        </div> 
+ <!--Begin currently reading section-->       
+            <div id="intro" class="section body">
+                    <div class="container">
+                    <!--   <div class="row">
+                            <div  class="col s12">
+                                <h2 class="center header"> "A ship is always safe at the shore, but that is not what it is built for." - Albert Einstein</h2>
+                            </div>
+                        </div> --> 
+                        <div class="row center">
+                            <div class="col s12 m12 l3">
+                                
+                            </div>
+                            <dic class="col s12 m12 offset-l1 l8 aboutme">
+                                <h5 class="center"><b></b></h5>
+                                <p>
+                                        </a>.
+                                    <br />
+                                    <br>
+                                   <div class ="black-text"><i></i> </div> 
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="p1" class="parallax-container">
+                    <div class="parallax">
+                        <img src="public/images/openbooks.jpg">
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col s12 center white-text">
+                                <h1><b></b></h1>
+                                <br>
+                                <br>
+                                <br>
+                                <h4 ><b>"Currently reading" goes here</b>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>      
+                </div>
+
+<!--Work-->
+<div class="section"  id="work">
+<div class="container">
+    <h3 class="header text_b center">My Projects </h3>
+    <div class="row ">
+        <div class="col s12 m12 l4">
+            <div class="card hoverable black">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="assets/images/trivia.png">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator purple-text text-lighten-5 ">Trivia Game <i class="mdi-navigation-more-vert right"></i></span>
+                    
+                    <p><a class="purple-text text-lighten-5" href="#"></a></p>
+                </div>
+                <div class="card-reveal  black">
+                    <span class="card-title purple-text text-lighten-5">Trivia Game<i class="mdi-navigation-close right"></i></span>
+                    <p>Think you know everything about John Hughes? Take this quiz to find out!</p> 
+                    <p>Web development elements used:</p>
+                    <ul style="list-style-type:disc;">
+                        <li>HTML/CSS</li>
+                        <li>Javascript</li>
+                        <li>jQuery</li>
+                      </ul>  
+                    <a href="https://jenivy06.github.io/triviagame/" target="_blank">Click to view</a>
+                    <br>
+                    <br>
+                    <a href="https://github.com/jenivy06/TriviaGame" target="_blank">View code on GitHub</a>
+                </div>
+            </div>
+        </div>   
+        <div class="col s12 m12 l4">
+                <div class="card hoverable black">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="assets/images/crystal.png">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator purple-text text-lighten-5 ">The Crystal Collector Game<i class="mdi-navigation-more-vert right"></i></span>
+                        
+                        <p><a class="purple-text text-lighten-5" href="#"></a></p>
+                    </div>
+                    <div class="card-reveal  black">
+                        <span class="card-title purple-text text-lighten-5">The Crystal Collector Game<i class="mdi-navigation-close right"></i></span>
+                        <p>Click on crystal images and accrue points to match a target score.</p> 
+                        <p>Web development elements used:</p>
+                    <ul style="list-style-type:disc;">
+                        <li>HTML/CSS</li>
+                        <li>Bootstrap</li>
+                        <li>jQuery</li>
+                      </ul>  
+                        <a href="https://jenivy06.github.io/unit-4-game/" target="_blank">Click to view</a>
+                        <br>
+                    <br>
+                    <a href="https://github.com/jenivy06/unit-4-game" target="_blank">View code on GitHub</a>
+                    </div>
+                </div>
+            </div>   
+            <div class="col s12 m12 l4">
+                    <div class="card hoverable black">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" src="assets/images/project1.png">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator purple-text text-lighten-5 ">Team Project: Geo News! <i class="mdi-navigation-more-vert right"></i></span>
+                            
+                            <p><a class="purple-text text-lighten-5" href="#"></a></p>
+                        </div>
+                        <div class="card-reveal  black">
+                            <span class="card-title purple-text text-lighten-5">Team Project: Geo News!<i class="mdi-navigation-close right"></i></span>
+                            <p>In this team project, users are able to search for top news articles in major cities.</p> 
+                            <p>Web development elements used:</p>
+                        <ul style="list-style-type:disc;">
+                            <li>HTML/CSS</li>
+                            <li>Bootstrap</li>
+                            <li>jQuery</li>
+                            <li>API calls</li>
+                          </ul>  
+                            <a href="https://mtvalencia.github.io/Group5_Proj1/index.html" target="_blank">Click to view</a>
+                            <br>
+                    <br>
+                    <a href="https://github.com/mtvalencia/Group5_Proj1" target="_blank">View code on GitHub</a>
+                            
+                        </div>
+                    </div>
+                </div>   
+                <div class="col s12 m12 l4">
+                        <div class="card hoverable black">
+                            <div class="card-image waves-effect waves-block waves-light">
+                                <img class="activator" src="assets/images/psychic.png">
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title activator purple-text text-lighten-5 ">The Psychic Game<i class="mdi-navigation-more-vert right"></i></span>
+                                
+                                <p><a class="purple-text text-lighten-5" href="#"></a></p>
+                            </div>
+                            <div class="card-reveal  black">
+                                <span class="card-title purple-text text-lighten-5">The Psychic Game<i class="mdi-navigation-close right"></i></span> 
+                                <p>Pick random letters to match the letter the computer has selected. </p> 
+                            <p>Web development elements used:</p>
+                        <ul style="list-style-type:disc;">
+                            <li>HTML</li>
+                            <li>Javascript</li>
+                          </ul>  
+                                <a href="https://jenivy06.github.io/psychic-game/" target="_blank">Click to view</a>
+                                <br>
+                    <br>
+                    <a href="https://github.com/jenivy06/psychic-game" target="_blank">View code on GitHub</a>
+                            </div>
+                        </div>
+                    </div>   
+                    <div class="col s12 m12 l4">
+                            <div class="card hoverable black">
+                                <div class="card-image waves-effect waves-block waves-light">
+                                    <img class="activator" src="assets/images/giphy.png">
+                                </div>
+                                <div class="card-content">
+                                    <span class="card-title activator purple-text text-lighten-5 ">GifTastic! Gif Generator<i class="mdi-navigation-more-vert right"></i></span>
+                                    
+                                    <p><a class="purple-text text-lighten-5" href="#"></a></p>
+                                </div>
+                                <div class="card-reveal  black">
+                                    <span class="card-title purple-text text-lighten-5">GifTastic! Gif Generator<i class="mdi-navigation-close right"></i></span>
+                                    <p>Click on the buttons at the top to generate gifs of some of Saturday Night Live's best cast members. Or, search for a cast member to generate a new button. </p> 
+                                    <p>Web development elements used:</p>
+                        <ul style="list-style-type:disc;">
+                            <li>HTML/CSS</li>
+                            <li>Bootstrap</li>
+                            <li>Giphy API call</li>
+                            <li>Javascript</li>
+                            <li>jQuery</li>
+                          </ul>  
+                                    <a href="https://jenivy06.github.io/giphy-project/" target="_blank">Click to view</a>
+                                    <br>
+                    <br>
+                    <a href="https://github.com/jenivy06/giphy-project" target="_blank">View code on GitHub</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col s12 m12 l4">
+                            <div class="card hoverable black">
+                                <div class="card-image waves-effect waves-block waves-light">
+                                    <img class="activator" src="assets/images/nodejs.png">
+                                </div>
+                                <div class="card-content">
+                                    <span class="card-title activator purple-text text-lighten-5 ">Liri Node App<i class="mdi-navigation-more-vert right"></i></span>
+                                    
+                                    <p><a class="purple-text text-lighten-5" href="#"></a></p>
+                                </div>
+                                <div class="card-reveal  black">
+                                    <span class="card-title purple-text text-lighten-5">Liri Node App<i class="mdi-navigation-close right"></i></span>
+                                    <p>Using four commands, along with parameters of their choosing, users can run certain functions through Node.js that will call specific data.  </p> 
+                                    <p>Web development elements used:</p>
+                        <ul style="list-style-type:disc;">
+                            <li>Node.js</li>
+                            <li>Javascript</li>
+                            <li>OMDB API </li>
+                            <li>Spotify API </li>
+                            <li>NPM Packages (Moment, Bandsintown, Spotify, OMDB)</li>
+                            
+                          </ul>  
+                    <br>
+                    <a href="https://github.com/jenivy06/liri-node-app" target="_blank">View code on GitHub</a>
+                                </div>
+                            </div>
+                     </div> 
+                     
+            </div>
+            <div class="row ">
+                <div class="col s12 m12 l4">
+                    <div class="card hoverable black">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" src="assets/images/handlebars.png">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator purple-text text-lighten-5 ">Eat-Da-Burger! <i class="mdi-navigation-more-vert right"></i></span>
+                            
+                            <p><a class="purple-text text-lighten-5" href="#"></a></p>
+                        </div>
+                        <div class="card-reveal  black">
+                            <span class="card-title purple-text text-lighten-5">Eat-Da-Burger!<i class="mdi-navigation-close right"></i></span>
+                            <p>In the left-hand column, there is a list of burgers ready to be devoured. Once the "devour" button is clicked, these burgers get moved to the Devoured Burgers column. Users can also place an order, type in a burger name, and that burger name will get added to the "Ready-to-Eat Burgers" column, waiting to be devoured.</p> 
+                            <p>Web development elements used:</p>
+                            <ul style="list-style-type:disc;">
+                                <li>HTML/CSS</li>
+                                <li>jQuery</li>
+                                <li>MySQL</li>
+                                <li>Node.js</li>
+                                <li>Express</li>
+                                <li>Handlebars</li>
+                                <li>Object-Relational Mapping (ORM)</li>
+                              </ul>  
+                            <a href="https://dry-refuge-93043.herokuapp.com/" target="_blank">Click to view</a>
+                            <br>
+                            <br>
+                            <a href="https://github.com/jenivy06/burger" target="_blank">View code on GitHub</a>
+                        </div>
+                    </div>
+                </div>               
+    </div>
+</div>
+
+</div>
+            </body>
+            </html>
+<script>
+$(document).ready(function(){
+    $(".parallax").parallax();
+});
+</script>
