@@ -13,6 +13,17 @@
  opacity: 0.9;
 }
 
+#landingIndex{
+  height: 100vh;
+  background-image: url("https://i.pinimg.com/originals/b4/9d/4a/b49d4a3318145fd126add231463e31aa.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  z-index: -1;
+ opacity: 0.9;
+}
+
 .h1 {
   color: 
 }
