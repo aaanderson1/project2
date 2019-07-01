@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <script src="public/js/submit.js"></script>
+    <script src="public/js/index.js"></script>
     <script src="public/js/materialize.js"></script>
     <script src="public/js/materialize.min.js"></script>
     <div class="navbar-fixed">
@@ -26,7 +26,7 @@
                         <a href="#" class="brand-logo"></a>
                         <ul class="right hide-on-med-and-down" id="navList">
                             <li><a href="#landing">Home</a></li>
-                            <li><a href= "#add">Add A Book</a></li>
+                            <li><a href= "#mainText">Add A Book</a></li>
                             <li><a href="#current">Currently Reading</a></li>
                             <li><a href="#alreadyRead">Already Read</a></li>
                             <li><a href="#wishlist">Book Wishlist</a></li>
@@ -36,6 +36,7 @@
             </nav>
         </div>
         <!--Begin submit form-->
+        
         <div class="section" id="landingLibrary">
                 <div class = "wrappersubmitform blue-grey lighten-3">                    
                        <h5 id="mainText" class="fas fa-plus center" style="color: #eceff1"><b> ADD A <b> BOOK </b></h5>
@@ -44,44 +45,42 @@
                 <div class="row">
                         <form class="col s12">
                           <div class="row">
-                            <div class="input-field col s6">
+                            <div class="input-field col s6" method="POST">
                               <i class="material-icons prefix">account_circle</i>
-                              <input type = "text" id="userName" type="text" class="validate">
+                              <input type = "text" id="userName" type="text" class="form-control">
                               <label for="icon_prefix"></label>
                               <h6>Your First Name</h6>
                             </div>
                           </div>
-                        </form>
                       </div>
                 <!--Begin book title-->
                 <div class="row">
                         <form class="col s12">
                           <div class="row">
-                            <div class="input-field col s12">
+                            <div class="input-field col s12" method="POST">
                               <i class="material-icons prefix">mode_edit</i>
-                              <input type = "text" id="bookTitle" type="text" class="validate">
+                              <input type = "text" id="bookTitle" type="text" class="form-control">
                               <label for="icon_prefix"></label>
                               <h6>Book Title</h6>
                             </div>
                           </div>
-                        </form>
+                        
                       </div>
                 <!--Begin author name-->
                 <div class="row">
                         <form class="col s6">
                           <div class="row">
-                            <div class="input-field col s6">
+                            <div class="input-field col s6" method="POST">
                               <i class="material-icons prefix">mode_edit</i>
-                              <input type = "text" id="authorFirst" type="text" class="validate">
+                              <input type = "text" id="authorFirst" type="text" class="form-control">
                               <label for="icon_prefix"></label>
                               <h6>Author First Name</h6>
                             </div>
                           </div>
-                        </form>
                         <form class="col s6">
-                                  <div class="input-field col s6">
+                                  <div class="input-field col s6" method="POST">
                                     <i class="material-icons prefix">mode_edit</i>
-                                    <input type = "text" id="authorLast" type="text" class="validate">
+                                    <input type = "text" id="authorLast" type="text" class="form-control">
                                     <label for="icon_prefix"></label>
                                     <h6>Author Last Name</h6>
                                   </div>
@@ -93,344 +92,156 @@
   <a class="dropdown-trigger btn btn-large waves-effect blue-grey darken-1" href="#" data-target="genre">Genre</a>
 
   <!-- Dropdown Structure -->
-  <ul id="genre" class="dropdown-content">
-    <li><a href="#!">Fiction</a></li>
-    <li><a href="#!">Non-fiction</a></li>
+  <ul id="genre" class="dropdown-content" method="POST">
+    <li><a href="#!" value = "Fiction">Fiction</a></li>
+    <li><a href="#!" value = "Non-fiction" >Non-fiction</a></li>
     <li class="divider" tabindex="-1"></li>
-    <li><a href="#!">Thriller/<br>Suspense</a></li>
-    <li><a href="#!">Action/<br>Adventure</a></li>
-    <li><a href="#!">Children</a></li>
-    <li><a href="#!">Romance</a></li>
-    <li><a href="#!">Self Help</a></li>
+    <li><a href="#!" value = "Thriller">Thriller/<br>Suspense</a></li>
+    <li><a href="#!" value = "Action/Adventure">Action/<br>Adventure</a></li>
+    <li><a href="#!" value = "Children">Children</a></li>
+    <li><a href="#!" value = "Romance">Romance</a></li>
+    <li><a href="#!" value = "Self Help">Self Help</a></li>
     
   </ul>
   <form class="col s6">
-        <div class="input-field col s6">
+        <div class="input-field col s6" method="POST">
           <i class="material-icons prefix">mode_edit</i>
-          <input type = "text" id="authorLast" type="text" class="validate">
+          <input type = "text" id="pagesNumber" type="text" class="form-control">
           <label for="icon_prefix"></label>
           <h6>Number of Pages</h6>
         </div>
-    </form>
+  
 
                 </div>
     <!--Begin comments section-->
     <div class="row">
-            <form class="col s12">
+            <form class="col s12" action="" method="POST" role="form">
               <div class="row">
                 <div class="input-field col s12">
-                  <textarea id="comments" class="materialize-textarea"></textarea>
+                  <textarea id="#book-description" class="form-control"></textarea>
                   <label for="textarea1"></label>
                   <h6>Comments/Notes</h6>
                 </div>
               </div>
-            </form>
+           
           </div>
 <!--Begin Rating row-->
 <div class = "row">
     <h6>Rating (5 = awesome; 1 = sucks)</h6>
-        <form action="#">
-            <label>
-        <input type="checkbox" id="star1"/>
-        <span>One</span>
-      </label>
-        </form>
-        <form action="#">
-                <label>
-            <input type="checkbox" id="star2"/>
-            <span>Two</span>
-          </label>
-            </form>
-            <form action="#">
-                    <label>
-                <input type="checkbox" id="star3"/>
-                <span>Three</span>
-              </label>
-                </form>
-                <form action="#">
-                        <label>
-                    <input type="checkbox" id="star4"/>
-                    <span>Four</span>
-                  </label>
-                    </form>
-                    <form action="#">
-                            <label>
-                        <input type="checkbox" id="star5"/>
-                        <span>Five</span>
-                      </label>
-                        </form>
+    <a class="dropdown-trigger btn btn-large waves-effect blue-grey darken-1" href="#" data-target="rating">Rate it!</a>
+    <ul id="rating" class="dropdown-content">
+      <li><a href="#!" value = "1">1</a></li>
+      <li><a href="#!" value = "2">2</a></li>
+      <li><a href="#!" vvalue = "3">3</a></li>
+      <li><a href="#!" value = "4">4</a></li>
+      <li><a href="#!" value = "5">5</a></li>
+    </ul>
+                      
 <!--Begin image URL row-->
 <div class="row">
         <form class="col s12">
           <div class="row">
             <div class="input-field col s12">
               <i class="material-icons prefix">mode_edit</i>
-              <input type = "text" id="bookTitle" type="text" class="validate">
+              <input type = "text" id="imageURL" type="text" class="validate">
               <label for="icon_prefix"></label>
               <h6>Image URL</h6>
             </div>
           </div>
-        </form>
+        
       </div>
+                    </form>
 
 <!--Begin submit buttons row-->
 <div class = "row center">
-    <button class="btn-large waves-effect waves-light blue-grey darken-1 fas fa-plus" id = "#addCurrentRead"> Add to 'Currently Reading'</button>
-    <button class="btn-large waves-effect waves-light blue-grey darken-1 fas fa-plus" id = "#addAlreadyRead"> Add to 'Already Read'</button>
-    <button class="btn-large waves-effect waves-light blue-grey darken-1 fas fa-plus" id = "#addWishlist"> Add to 'Wishlist'</button>
+    <button type = "submit" class = "btn-large waves-effect waves-light blue-grey darken-1 fas fa-plus" id = "#submitCurrent"> Add to 'Currently Reading'</button>
+    <button type = "submit" class="btn-large waves-effect waves-light blue-grey darken-1 fas fa-plus" id = "#submitPast"> Add to 'Already Read'</button>
+    <button type = "submit" class="btn-large waves-effect waves-light blue-grey darken-1 fas fa-plus" id = "#submitWishlist"> Add to 'Wishlist'</button>
 </div>
 </div>
 
 
-        </div> 
+        </div>
+
+<!--section divider-->
+
+<div class = "section blue-grey darken-1"></div>
+
  <!--Begin currently reading section-->       
-            <div id="intro" class="section body">
-                    <div class="container">
-                    <!--   <div class="row">
-                            <div  class="col s12">
-                                <h2 class="center header"> "A ship is always safe at the shore, but that is not what it is built for." - Albert Einstein</h2>
-                            </div>
-                        </div> --> 
-                        <div class="row center">
-                            <div class="col s12 m12 l3">
-                                
-                            </div>
-                            <dic class="col s12 m12 offset-l1 l8 aboutme">
-                                <h5 class="center"><b></b></h5>
-                                <p>
-                                        </a>.
-                                    <br />
-                                    <br>
-                                   <div class ="black-text"><i></i> </div> 
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div id="p1" class="parallax-container">
+                <div id="current" class="parallax-container valign-wrapper">
                     <div class="parallax">
                         <img src="public/images/openbooks.jpg">
                     </div>
                     <div class="container">
-                        <div class="row">
-                            <div class="col s12 center white-text">
-                                <h1><b></b></h1>
+                        <div class="row center">
+                            <div class="col s12 center gray-text">
+                                <h2><b>Currently Reading</b></h2>
                                 <br>
-                                <br>
-                                <br>
-                                <h4 ><b>"Currently reading" goes here</b>
-                                </h4>
+                              <!--Currently reading card-->
+                        <div class = "container valign-wrapper">
+                              <div class="col s10 offset-s1">
+                                <h2 class="header"></h2>
+                                <div class="card horizontal">
+                                  <div class="card-image">
+                                    <img src="https://images-na.ssl-images-amazon.com/images/I/81qzvzCEyUL.jpg" width="100" height="190" id = "currentbookImage">
+                                  </div>
+                                  <div class="card-stacked">
+                                    <div class="card-content" id ="bookComment">
+                                      <p></p>
+                                    </div>
+                                    <div class="card-action">
+                                      <a href="#">View Your Progress</a>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
+                          </div>
                         </div>
                     </div>      
                 </div>
 
-<!--Work-->
-<div class="section"  id="work">
-<div class="container">
-    <h3 class="header text_b center">My Projects </h3>
-    <div class="row ">
-        <div class="col s12 m12 l4">
-            <div class="card hoverable black">
-                <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="assets/images/trivia.png">
-                </div>
-                <div class="card-content">
-                    <span class="card-title activator purple-text text-lighten-5 ">Trivia Game <i class="mdi-navigation-more-vert right"></i></span>
-                    
-                    <p><a class="purple-text text-lighten-5" href="#"></a></p>
-                </div>
-                <div class="card-reveal  black">
-                    <span class="card-title purple-text text-lighten-5">Trivia Game<i class="mdi-navigation-close right"></i></span>
-                    <p>Think you know everything about John Hughes? Take this quiz to find out!</p> 
-                    <p>Web development elements used:</p>
-                    <ul style="list-style-type:disc;">
-                        <li>HTML/CSS</li>
-                        <li>Javascript</li>
-                        <li>jQuery</li>
-                      </ul>  
-                    <a href="https://jenivy06.github.io/triviagame/" target="_blank">Click to view</a>
-                    <br>
-                    <br>
-                    <a href="https://github.com/jenivy06/TriviaGame" target="_blank">View code on GitHub</a>
-                </div>
-            </div>
-        </div>   
-        <div class="col s12 m12 l4">
-                <div class="card hoverable black">
-                    <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="assets/images/crystal.png">
-                    </div>
-                    <div class="card-content">
-                        <span class="card-title activator purple-text text-lighten-5 ">The Crystal Collector Game<i class="mdi-navigation-more-vert right"></i></span>
-                        
-                        <p><a class="purple-text text-lighten-5" href="#"></a></p>
-                    </div>
-                    <div class="card-reveal  black">
-                        <span class="card-title purple-text text-lighten-5">The Crystal Collector Game<i class="mdi-navigation-close right"></i></span>
-                        <p>Click on crystal images and accrue points to match a target score.</p> 
-                        <p>Web development elements used:</p>
-                    <ul style="list-style-type:disc;">
-                        <li>HTML/CSS</li>
-                        <li>Bootstrap</li>
-                        <li>jQuery</li>
-                      </ul>  
-                        <a href="https://jenivy06.github.io/unit-4-game/" target="_blank">Click to view</a>
-                        <br>
-                    <br>
-                    <a href="https://github.com/jenivy06/unit-4-game" target="_blank">View code on GitHub</a>
-                    </div>
-                </div>
-            </div>   
-            <div class="col s12 m12 l4">
-                    <div class="card hoverable black">
-                        <div class="card-image waves-effect waves-block waves-light">
-                            <img class="activator" src="assets/images/project1.png">
-                        </div>
-                        <div class="card-content">
-                            <span class="card-title activator purple-text text-lighten-5 ">Team Project: Geo News! <i class="mdi-navigation-more-vert right"></i></span>
-                            
-                            <p><a class="purple-text text-lighten-5" href="#"></a></p>
-                        </div>
-                        <div class="card-reveal  black">
-                            <span class="card-title purple-text text-lighten-5">Team Project: Geo News!<i class="mdi-navigation-close right"></i></span>
-                            <p>In this team project, users are able to search for top news articles in major cities.</p> 
-                            <p>Web development elements used:</p>
-                        <ul style="list-style-type:disc;">
-                            <li>HTML/CSS</li>
-                            <li>Bootstrap</li>
-                            <li>jQuery</li>
-                            <li>API calls</li>
-                          </ul>  
-                            <a href="https://mtvalencia.github.io/Group5_Proj1/index.html" target="_blank">Click to view</a>
-                            <br>
-                    <br>
-                    <a href="https://github.com/mtvalencia/Group5_Proj1" target="_blank">View code on GitHub</a>
-                            
-                        </div>
-                    </div>
-                </div>   
-                <div class="col s12 m12 l4">
-                        <div class="card hoverable black">
-                            <div class="card-image waves-effect waves-block waves-light">
-                                <img class="activator" src="assets/images/psychic.png">
-                            </div>
-                            <div class="card-content">
-                                <span class="card-title activator purple-text text-lighten-5 ">The Psychic Game<i class="mdi-navigation-more-vert right"></i></span>
-                                
-                                <p><a class="purple-text text-lighten-5" href="#"></a></p>
-                            </div>
-                            <div class="card-reveal  black">
-                                <span class="card-title purple-text text-lighten-5">The Psychic Game<i class="mdi-navigation-close right"></i></span> 
-                                <p>Pick random letters to match the letter the computer has selected. </p> 
-                            <p>Web development elements used:</p>
-                        <ul style="list-style-type:disc;">
-                            <li>HTML</li>
-                            <li>Javascript</li>
-                          </ul>  
-                                <a href="https://jenivy06.github.io/psychic-game/" target="_blank">Click to view</a>
-                                <br>
-                    <br>
-                    <a href="https://github.com/jenivy06/psychic-game" target="_blank">View code on GitHub</a>
-                            </div>
-                        </div>
-                    </div>   
-                    <div class="col s12 m12 l4">
-                            <div class="card hoverable black">
-                                <div class="card-image waves-effect waves-block waves-light">
-                                    <img class="activator" src="assets/images/giphy.png">
-                                </div>
-                                <div class="card-content">
-                                    <span class="card-title activator purple-text text-lighten-5 ">GifTastic! Gif Generator<i class="mdi-navigation-more-vert right"></i></span>
-                                    
-                                    <p><a class="purple-text text-lighten-5" href="#"></a></p>
-                                </div>
-                                <div class="card-reveal  black">
-                                    <span class="card-title purple-text text-lighten-5">GifTastic! Gif Generator<i class="mdi-navigation-close right"></i></span>
-                                    <p>Click on the buttons at the top to generate gifs of some of Saturday Night Live's best cast members. Or, search for a cast member to generate a new button. </p> 
-                                    <p>Web development elements used:</p>
-                        <ul style="list-style-type:disc;">
-                            <li>HTML/CSS</li>
-                            <li>Bootstrap</li>
-                            <li>Giphy API call</li>
-                            <li>Javascript</li>
-                            <li>jQuery</li>
-                          </ul>  
-                                    <a href="https://jenivy06.github.io/giphy-project/" target="_blank">Click to view</a>
-                                    <br>
-                    <br>
-                    <a href="https://github.com/jenivy06/giphy-project" target="_blank">View code on GitHub</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col s12 m12 l4">
-                            <div class="card hoverable black">
-                                <div class="card-image waves-effect waves-block waves-light">
-                                    <img class="activator" src="assets/images/nodejs.png">
-                                </div>
-                                <div class="card-content">
-                                    <span class="card-title activator purple-text text-lighten-5 ">Liri Node App<i class="mdi-navigation-more-vert right"></i></span>
-                                    
-                                    <p><a class="purple-text text-lighten-5" href="#"></a></p>
-                                </div>
-                                <div class="card-reveal  black">
-                                    <span class="card-title purple-text text-lighten-5">Liri Node App<i class="mdi-navigation-close right"></i></span>
-                                    <p>Using four commands, along with parameters of their choosing, users can run certain functions through Node.js that will call specific data.  </p> 
-                                    <p>Web development elements used:</p>
-                        <ul style="list-style-type:disc;">
-                            <li>Node.js</li>
-                            <li>Javascript</li>
-                            <li>OMDB API </li>
-                            <li>Spotify API </li>
-                            <li>NPM Packages (Moment, Bandsintown, Spotify, OMDB)</li>
-                            
-                          </ul>  
-                    <br>
-                    <a href="https://github.com/jenivy06/liri-node-app" target="_blank">View code on GitHub</a>
-                                </div>
-                            </div>
-                     </div> 
-                     
-            </div>
-            <div class="row ">
-                <div class="col s12 m12 l4">
-                    <div class="card hoverable black">
-                        <div class="card-image waves-effect waves-block waves-light">
-                            <img class="activator" src="assets/images/handlebars.png">
-                        </div>
-                        <div class="card-content">
-                            <span class="card-title activator purple-text text-lighten-5 ">Eat-Da-Burger! <i class="mdi-navigation-more-vert right"></i></span>
-                            
-                            <p><a class="purple-text text-lighten-5" href="#"></a></p>
-                        </div>
-                        <div class="card-reveal  black">
-                            <span class="card-title purple-text text-lighten-5">Eat-Da-Burger!<i class="mdi-navigation-close right"></i></span>
-                            <p>In the left-hand column, there is a list of burgers ready to be devoured. Once the "devour" button is clicked, these burgers get moved to the Devoured Burgers column. Users can also place an order, type in a burger name, and that burger name will get added to the "Ready-to-Eat Burgers" column, waiting to be devoured.</p> 
-                            <p>Web development elements used:</p>
-                            <ul style="list-style-type:disc;">
-                                <li>HTML/CSS</li>
-                                <li>jQuery</li>
-                                <li>MySQL</li>
-                                <li>Node.js</li>
-                                <li>Express</li>
-                                <li>Handlebars</li>
-                                <li>Object-Relational Mapping (ORM)</li>
-                              </ul>  
-                            <a href="https://dry-refuge-93043.herokuapp.com/" target="_blank">Click to view</a>
-                            <br>
-                            <br>
-                            <a href="https://github.com/jenivy06/burger" target="_blank">View code on GitHub</a>
-                        </div>
-                    </div>
-                </div>               
-    </div>
-</div>
 
-</div>
-            </body>
-            </html>
+
+<!--section divider-->
+
+<div class = "section blue-grey darken-1"></div>
+
+ <!--Already Read section-->
+
+ <div id="alreadyRead" class="parallax-container">
+  <div class="parallax">
+      <img src="public/images/alreadyread.jpg">
+  </div>
+  <div class = "container">
+      <div class="row center">
+          <div class="col s12 center gray-text">
+              <h2><b>Already Read</b></h2>
+              <br>
+            <!--Already read collapsible area-->
+            <ul class="collapsible">
+                <li>
+                  <div class="collapsible-header" id = "bookAlready1"><i class="material-icons"></i>First book</div>
+                  <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                </li>
+                <li>
+                  <div class="collapsible-header"><i class="material-icons" id = "bookAlready2"></i>Second book</div>
+                  <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                </li>
+                <li>
+                  <div class="collapsible-header"><i class="material-icons" id = "bookAlready3"></i>Third book</div>
+                  <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                </li>
+              </ul>
+  
+                
+  </div>
+  </div>
+  </div>
+
+</body>
+</html>
+
 <script>
-//$(document).ready(function(){
-  //  $(".parallax").parallax();
-//});
+
 </script>

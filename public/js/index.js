@@ -1,7 +1,61 @@
+$(document).ready(function() {
+  $(".parallax").parallax();
+  $(".dropdown-trigger").dropdown();
+  $(".collapsible").collapsible();
+});
+
+//When user clicks submitCurrent button
+$("#submitCurrent").on("click", function(event) {
+  event.preventDefault();
+  //make a currentBook object
+  var currentBook = {
+    // eslint-disable-next-line prettier/prettier
+    user: $("#userName").val().trim(),
+    // eslint-disable-next-line prettier/prettier
+    title: $("#bookTitle").val().trim(),
+    // eslint-disable-next-line prettier/prettier
+    authorFirst: $("#authorFirst").val().trim(),
+    // eslint-disable-next-line prettier/prettier
+    authorLast: $("#authorLast").val().trim(),
+    // eslint-disable-next-line prettier/prettier
+    genre: $("#genre").val(),
+    pages: $("#pagesNumber").val().trim(),
+    comments: $("#book-description").val().trim(),
+    rating: $("#rating").val(),
+    image: $("#imageURL").val().trim(),
+  };
+  // send ajax post-request with jquery
+  $.post("/api/new", currentBook)
+    // On success, run the following code
+    .then(function(data) {
+      // Log the data we found
+      console.log(data);
+    });
+  // Empty each input box by replacing the value with an empty string
+  $("#userName").val("");
+  $("#bookTitle").val("");
+  $("#authorFirst").val("");
+  $("#authorLast").val("");
+  //$("#genre").val("");
+  $("#pagesNumber").val("");
+  $("#book-description").val("");
+  //$("#rating").val("");
+  $("#imageURL").val("");
+
+  //dynamically populate to currently reading card
+  $("#bookComment").append("<p>Description: </p>" + currentBook);
+});
 // Get references to page elements
+// eslint-disable-next-line no-unused-vars
+
 var $bookText = $("#book-text");
 var $bookDescription = $("#book-description");
-var $submitBtn = $("#submit");
+// eslint-disable-next-line no-unused-vars
+var $submitBtnCurrent = $("#submitCurrent");
+// eslint-disable-next-line no-unused-vars
+var $submitBtnPast = $("#submitPast");
+// eslint-disable-next-line no-unused-vars
+var $submitBtnWishlist = $("#submitWishlist");
 var $bookList = $("#book-list");
 
 // The API object contains methods for each kind of request we'll make
@@ -22,7 +76,7 @@ var API = {
       type: "GET"
     });
   },
-  deleteBBook: function(id) {
+  deleteBook: function(id) {
     return $.ajax({
       url: "api/books/" + id,
       type: "DELETE"
@@ -65,7 +119,7 @@ var handleFormSubmit = function(event) {
   event.preventDefault();
 
   var book = {
-    text: $bookText.val().trim(),
+    name: $bookText.val().trim(),
     description: $bookDescription.val().trim()
   };
 
@@ -95,5 +149,5 @@ var handleDeleteBtnClick = function() {
 };
 
 // Add event listeners to the submit and delete buttons
-$submitBtn.on("click", handleFormSubmit);
+$submitBtnCurrent.on("click", handleFormSubmit);
 $bookList.on("click", ".delete", handleDeleteBtnClick);
