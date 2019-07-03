@@ -83,33 +83,26 @@
                                   </div>
                               </form>
                       </div>
-                <!--Begin genre and number of pages row-->
+                <!--Begin genre-->
                 <div class = "row">
-                 <!-- Genre Dropdown Trigger -->
-  <a class="dropdown-trigger btn btn-large waves-effect blue-grey darken-1" href="#" data-target="genre">Genre</a>
-
-  <!-- Dropdown Structure -->
-  <ul id="genre" class="dropdown-content" method="POST">
-    <li><a href="#!" value = "Fiction">Fiction</a></li>
-    <li><a href="#!" value = "Non-fiction" >Non-fiction</a></li>
-    <li class="divider" tabindex="-1"></li>
-    <li><a href="#!" value = "Thriller">Thriller/<br>Suspense</a></li>
-    <li><a href="#!" value = "Action/Adventure">Action/<br>Adventure</a></li>
-    <li><a href="#!" value = "Children">Children</a></li>
-    <li><a href="#!" value = "Romance">Romance</a></li>
-    <li><a href="#!" value = "Self Help">Self Help</a></li>
-    
-  </ul>
-  <form class="col s6">
-        <div class="input-field col s6" method="POST">
-          <i class="material-icons prefix">mode_edit</i>
-          <input type = "text" id="pagesNumber" type="text" class="form-control">
-          <label for="icon_prefix"></label>
-          <h6>Number of Pages</h6>
-        </div>
-  
-
+                  <form class="col s6">
+                      <div class="input-field col s6" method="POST">
+                        <i class="material-icons prefix">mode_edit</i>
+                        <input type = "text" id="genre" class="form-control">
+                        <label for="icon_prefix"></label>
+                        <h6>Genre</h6>
+                      </div>
+                  <form class="col s6">
+                            <div class="input-field col s6" method="POST">
+                              <i class="material-icons prefix">mode_edit</i>
+                              <input type = "number" id="pagesNumber" class="form-control">
+                              <label for="icon_prefix"></label>
+                              <h6>Number of pages</h6>
+                            </div>
+                        </form>
                 </div>
+
+                
     <!--Begin comments section-->
     <div class="row">
             <form class="col s12" action="" method="POST" role="form">
@@ -124,15 +117,16 @@
           </div>
 <!--Begin Rating row-->
 <div class = "row">
-    <h6>Rating (5 = awesome; 1 = sucks)</h6>
-    <a class="dropdown-trigger btn btn-large waves-effect blue-grey darken-1" href="#" data-target="rating">Rate it!</a>
-    <ul id="rating" class="dropdown-content">
-      <li><a href="#!" value = "1">1</a></li>
-      <li><a href="#!" value = "2">2</a></li>
-      <li><a href="#!" vvalue = "3">3</a></li>
-      <li><a href="#!" value = "4">4</a></li>
-      <li><a href="#!" value = "5">5</a></li>
-    </ul>
+  <form class="col s6">
+    <div class="input-field col s6" method="POST">
+      <i class="material-icons prefix">mode_edit</i>
+      <input type = "number" id="rating" class="form-control" min = "1" max = "5">
+      <label for="icon_prefix"></label>
+      <h6>Rating (between 1 and 5. 1 = sucks; 5 = awesome)</h6>
+    </div>
+</form>
+</div>
+
                       
 <!--Begin image URL row-->
 <div class="row">
