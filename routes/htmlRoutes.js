@@ -3,9 +3,9 @@ var db = require("../models");
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    db.book.findAll({}).then(function(dbBooks) {
+    db.Book.findAll({}).then(function(dbBooks) {
       res.render("index", {
-        msg: "All Books",
+        msg: "Welcome!",
         Books: dbBooks
       });
     });

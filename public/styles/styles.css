@@ -1,8 +1,9 @@
 .list-group-item {
   line-height: 2.5;
 }
-#landing{
-  height: 100vh;
+
+#landingLibrary{
+  height: 225vh;
   background-image: url("https://i.pinimg.com/originals/b4/9d/4a/b49d4a3318145fd126add231463e31aa.png");
   background-position: center;
   background-size: cover;
@@ -11,4 +12,30 @@
   z-index: -1;
  opacity: 0.9;
 }
+
+.h1 {
+  color: 
+}
+
+.wrappersubmitform {
+  width: 960px;
+  height: 1300px;
+  background-color: #ffffff;
+  margin: 0 auto;
+  padding: 20px;
+  clear: both;
+  overflow: hidden;
+  border-style: solid 50px;
+  border-color: #dddddd;
+
+}
+
+hr.withstyle { 
+  height: 30px; 
+  border-style: solid; 
+  border-color: #8c8b8b; 
+  border-width: 1px 0 0 0; 
+  border-radius: 20px; 
+} 
+
 

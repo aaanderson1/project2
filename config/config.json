@@ -1,24 +1,21 @@
 {
   "development": {
     "username": "root",
-    "password": "omologator",
-    "database": "pageturner_db",
+    "password": null,
+    "database": "exampledb",
     "host": "localhost",
-    "port": 3306,
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": "omologator",
-    "database": "pageturner_db",
+    "password": null,
+    "database": "testdb",
     "host": "localhost",
-    "port": 3306,
     "dialect": "mysql",
     "logging": false
   },
   "production": {
     "use_env_variable": "JAWSDB_URL",
-    "port": 3306,
     "dialect": "mysql"
   }
 }
