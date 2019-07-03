@@ -1,4 +1,9 @@
 {
+    "parserOptions": {
+        "ecmaFeatures": {
+            "experimentalObjectRestSpread": true
+        }
+    },
     "env": {
         "browser": true,
         "commonjs": true,
