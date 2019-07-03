@@ -4,6 +4,17 @@ $(document).ready(function() {
   $(".parallax").parallax();
   $(".dropdown-trigger").dropdown();
   $(".collapsible").collapsible();
+  $(".submitCurrent").click(function(){
+    var title = $("#bookTitle").val().trim();
+    var authorFirst = $("#authorFirst").val().trim();
+    var authorLast = $("#authorLast").val().trim();
+    var authorLast = $("#authorLast").val().trim();
+    var pagesNumber = $("#pagesNumber").val().trim();
+    var genre = $("#genre").val()
+    var comments = $("#book-description").val().trim();
+    var rating = $("#rating").val()
+    var imageURL = $("#imageURL").val().trim();
+  });
 });
 
 //When user clicks submitCurrent button

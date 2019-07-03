@@ -218,33 +218,31 @@
               <h2><b>Already Read</b></h2>
               <br>
             <!--Already read table-->
-            <table class = "highlight table-responsive">
-              <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Author First Name</th>
-                    <th>Author Last Name</th>
-                    <th>Number of Pages</th>
-                    <th>Genre</th>
-                    <th>Comments/Notes</th>
-                    <th>Author Last Name</th>
+            <div class = "row">
+              <table>
+                <thead>
+                  <tr>
+                      <th data-field="bookTitle">Title</th>
+                      <th data-field="bookDetails">Book Details</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                  <td>
+                    <p class="table-metric-color">Book Title</p>
+                  </td>
+                  <td>
+                    <ul class="collapsible" data-collapsible="accordion">
+                      <li>
+                        <div class="collapsible-header">Click here for details</div>
+                        <p class="collapsible-body white"><code> Details here</code></p>
+                      </li>
+                    </ul>
+                  </td>
                 </tr>
-              </thead>
-      
-              <tbody>
-                <tr>
-                  <td>test</td>
-                  <td>test</td>
-                  <td>test</td>
-                  <td>test</td>
-                  <td>test</td>
-                  <td>test</td>
-                  <td>test</td>
-                  
-                </tr>
-                
-            </table>
-  
+                </tbody>
+              </table>
+            </div>
                 
   </div>
   </div>
@@ -263,10 +261,10 @@
  </div>
  <div class = "container">
      <div class="row center">
-         <div class="col s12 center black-text">
+         <div class="col s12 center black-text" id ="wishlist">
              <h2><b>Wishlist</b></h2>
              <br>
-           <!--Already read collapsible area-->
+           <!--Wishlist table-->
            <ul class="collapsible">
                <li>
                  <div class="collapsible-header" id = "bookwish1"><i class="material-icons black-text"></i>First book</div>
