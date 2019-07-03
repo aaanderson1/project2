@@ -37,12 +37,5 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     }
   });
-  Book.associate = function(models) {
-    Book.belongsTo(models.Reader, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-  };
   return Book;
 };
