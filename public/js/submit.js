@@ -1,4 +1,4 @@
 $(document).ready(function(){
-    $(".parallax").parallax();
-    $(".dropdown-trigger").dropdown();
+  $(".parallax").parallax();
+  $(".dropdown-trigger").dropdown();
 });
