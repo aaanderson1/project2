@@ -44,7 +44,7 @@ module.exports = function(sequelize, DataTypes) {
     }
   );
   Book.associate = function(models) {
-    Book.belongsTo(models.Reader, {
+    Book.belongsTo(models.User, {
       foreignKey: {
         allowNull: false
       }
