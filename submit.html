@@ -146,6 +146,8 @@
 <!--Begin submit buttons row-->
 <div class = "row center">
     <button type = "button" class = "btn-large waves-effect waves-light blue-grey darken-1 fas fa-plus" id = "#submitCurrent"> Add to 'Currently Reading'</button>
+    <button type = "button" class = "btn-large waves-effect waves-light blue-grey darken-1 fas fa-plus" id = "#submitAlready"> Add to 'Already Read'</button>
+    <button type = "button" class = "btn-large waves-effect waves-light blue-grey darken-1 fas fa-plus" id = "#submitWishlist"> Add to 'Wishlist'</button>
     
 </div>
 </div>
@@ -226,7 +228,7 @@
                     <ul class="collapsible" data-collapsible="accordion">
                       <li>
                         <div class="collapsible-header">Click here for details</div>
-                        <p class="collapsible-body white"><code> Details here</code></p>
+                        <p class="collapsible-body white" id = "bookContent"><code></code></p>
                       </li>
                     </ul>
                   </td>
@@ -244,38 +246,48 @@
 
 <div class = "section blue-grey darken-1"></div>
 
-<!--Already Read section-->
+<!-- Wishlist section-->
 
 <div id="alreadyRead" class="parallax-container">
- <div class="parallax">
-     <img src="public/images/wishlist2.jpg">
- </div>
- <div class = "container">
-     <div class="row center">
-         <div class="col s12 center black-text" id ="wishlist">
-             <h2><b>Wishlist</b></h2>
-             <br>
-           <!--Wishlist table-->
-           <ul class="collapsible">
-               <li>
-                 <div class="collapsible-header" id = "bookwish1"><i class="material-icons black-text"></i>First book</div>
-                 <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-               </li>
-               <li>
-                 <div class="collapsible-header"><i class="material-icons" id = "bookwish1"></i>Second book</div>
-                 <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-               </li>
-               <li>
-                 <div class="collapsible-header"><i class="material-icons" id = "bookwish1"></i>Third book</div>
-                 <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-               </li>
-             </ul>
- 
-               
- </div>
- </div>
- </div>
- </div>
+  <div class="parallax">
+      <img src="public/images/wishlist2.jpg">
+  </div>
+  <div class = "container">
+      <div class="row center">
+          <div class="col s12 center gray-text">
+              <h2><b>Wishlist</b></h2>
+              <br>
+            <!--Already read table-->
+            <div class = "row">
+              <table>
+                <thead>
+                  <tr>
+                      <th data-field="bookTitle">Title</th>
+                      <th data-field="bookDetails">Book Details</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                  <td>
+                    <p class="table-metric-color">Book Title</p>
+                  </td>
+                  <td>
+                    <ul class="collapsible" data-collapsible="accordion">
+                      <li>
+                        <div class="collapsible-header">Click here for details</div>
+                        <p class="collapsible-body white" id = "wishlistContent"><code></code></p>
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+                
+  </div>
+  </div>
+  </div>
+  </div>
 
 </body>
 </html>
