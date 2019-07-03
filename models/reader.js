@@ -3,7 +3,8 @@ module.exports = function(sequelize, DataTypes) {
     name: DataTypes.STRING
   });
   Reader.associate = function(models) {
-    Reader.hasMany(models.Book, {
+    console.log(models);
+    Reader.hasMany(models.book, {
       onDelete: "cascade"
     });
   };

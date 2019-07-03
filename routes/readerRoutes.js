@@ -4,8 +4,8 @@ module.exports = function(app) {
   app.get("/api/readers", function(req, res) {
     db.Reader.findAll({
       include: [db.Book]
-    }).then(function(dbReader) {
-      res.json(dbReader);
+    }).then(function(dbReaders) {
+      res.json(dbReaders);
     });
   });
 
