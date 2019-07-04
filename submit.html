@@ -39,109 +39,87 @@
                        <h5 id="mainText" class="fas fa-plus center" style="color: #eceff1"><b> ADD A <b> BOOK </b></h5>
                         <hr class = "hr.withstyle"></hr>
                 <!--Begin user name input-->
-                <div class="row">
-                        <form class="col s12">
-                          <div class="row">
-                            <div class="input-field col s6" method="POST">
-                              <i class="material-icons prefix">account_circle</i>
-                              <input type = "text" id="userName" type="text" class="form-control">
-                              <label for="icon_prefix"></label>
-                              <h6>Your First Name</h6>
-                            </div>
+                 <form class="col 12" method= "POST" role="form">
+                    <div class = "row">
+                        <div class="input-field col s6">
+                          <div class="form-group">
+                            <label for=""></label>
+                            <h6 class="gray-text">Your Name</h6>
+                            <input type="text" class="form-control" id="userName" placeholder="">
                           </div>
-                      </div>
-                <!--Begin book title-->
-                <div class="row">
-                        <form class="col s12">
-                          <div class="row">
-                            <div class="input-field col s12" method="POST">
-                              <i class="material-icons prefix">mode_edit</i>
-                              <input type = "text" id="bookTitle" type="text" class="form-control">
-                              <label for="icon_prefix"></label>
-                              <h6>Book Title</h6>
-                            </div>
                           </div>
-                        
-                      </div>
-                <!--Begin author name-->
-                <div class="row">
-                        <form class="col s6">
-                          <div class="row">
-                            <div class="input-field col s6" method="POST">
-                              <i class="material-icons prefix">mode_edit</i>
-                              <input type = "text" id="authorFirst" type="text" class="form-control">
-                              <label for="icon_prefix"></label>
-                              <h6>Author First Name</h6>
-                            </div>
+                    </div>
+                    <div class = "row">
+                        <div class="input-field col s6">
+                          <div class="form-group">
+                            <label for=""></label>
+                            <h6 class="gray-text">Book Title</h6>
+                            <input type="text" class="form-control" id="bookTitle" placeholder="">
                           </div>
-                        <form class="col s6">
-                                  <div class="input-field col s6" method="POST">
-                                    <i class="material-icons prefix">mode_edit</i>
-                                    <input type = "text" id="authorLast" type="text" class="form-control">
-                                    <label for="icon_prefix"></label>
-                                    <h6>Author Last Name</h6>
-                                  </div>
-                              </form>
-                      </div>
-                <!--Begin genre-->
-                <div class = "row">
-                  <form class="col s6">
-                      <div class="input-field col s6" method="POST">
-                        <i class="material-icons prefix">mode_edit</i>
-                        <input type = "text" id="genre" class="form-control">
-                        <label for="icon_prefix"></label>
-                        <h6>Genre</h6>
-                      </div>
-                  <form class="col s6">
-                            <div class="input-field col s6" method="POST">
-                              <i class="material-icons prefix">mode_edit</i>
-                              <input type = "number" id="pagesNumber" class="form-control">
-                              <label for="icon_prefix"></label>
-                              <h6>Number of pages</h6>
-                            </div>
-                        </form>
-                </div>
-
-                
-    <!--Begin comments section-->
-    <div class="row">
-            <form class="col s12" action="" method="POST" role="form">
-              <div class="row">
-                <div class="input-field col s12">
-                  <textarea id="#book-description" class="form-control"></textarea>
-                  <label for="textarea1"></label>
-                  <h6>Comments/Notes</h6>
-                </div>
-              </div>
-           
-          </div>
-<!--Begin Rating row-->
-<div class = "row">
-  <form class="col s6">
-    <div class="input-field col s6" method="POST">
-      <i class="material-icons prefix">mode_edit</i>
-      <input type = "number" id="rating" class="form-control" min = "1" max = "5">
-      <label for="icon_prefix"></label>
-      <h6>Rating (between 1 and 5. 1 = sucks; 5 = awesome)</h6>
-    </div>
-</form>
-</div>
-
-                      
-<!--Begin image URL row-->
-<div class="row">
-        <form class="col s12">
-          <div class="row">
-            <div class="input-field col s12">
-              <i class="material-icons prefix">mode_edit</i>
-              <input type = "text" id="imageURL" type="text" class="validate">
-              <label for="icon_prefix"></label>
-              <h6>Image URL</h6>
-            </div>
-          </div>
-        
-      </div>
-                    </form>
+                          </div>
+                    </div>
+                    <div class = "row">
+                        <div class="input-field col s6">
+                          <div class="form-group">
+                            <label for=""></label>
+                            <h6 class="gray-text">Author First Name</h6>
+                            <input type="text" class="form-control" id="authorFirst" placeholder="">
+                          </div>
+                          </div>
+                        <div class="input-field col s6">
+                          <div class="form-group">
+                            <label for=""></label>
+                            <h6 class="gray-text">Author Last Name</h6>
+                            <input type="text" class="form-control" id="authorLast" placeholder="">
+                          </div>
+                        </div>
+                    </div>
+                    <div class = "row">
+                        <div class="input-field col s6">
+                          <div class="form-group">
+                            <label for=""></label>
+                            <h6 class="gray-text">Genre (Fiction, Non-Fiction, Action/Adventure, Mystery, Thriller, Children, Romance, or Self-Help)</h6>
+                            <input type="text" class="form-control" id="genre" placeholder="">
+                          </div>
+                          </div>
+                    </div>
+                    <div class = "row">
+                        <div class="input-field col s6">
+                          <div class="form-group">
+                            <label for=""></label>
+                            <h6 class="gray-text">Number of Pages</h6>
+                            <input type="number" class="form-control" id="pagesNumber" placeholder="">
+                          </div>
+                          </div>
+                    </div>
+                    <div class = "row">
+                        <div class="input-field col s6">
+                          <div class="form-group">
+                            <label for=""></label>
+                            <h6 class="gray-text">Book Description/Comments</h6>
+                            <input type="text" class="form-control" id="book-description" placeholder="">
+                          </div>
+                          </div>
+                    </div>
+                    <div class = "row">
+                        <div class="input-field col s6">
+                          <div class="form-group">
+                            <label for=""></label>
+                            <h6 class="gray-text">Rating (out of 5. 1 = Terrible; 5 = Awesome)</h6>
+                            <input type="number" class="form-control" id="rating" placeholder="" min="1" max="5">
+                          </div>
+                          </div>
+                    </div>
+                    <div class = "row">
+                        <div class="input-field col s6">
+                          <div class="form-group">
+                            <label for=""></label>
+                            <h6 class="gray-text">Image URL</h6>
+                            <input type="text" class="form-control" id="imageURL" placeholder="">
+                          </div>
+                          </div>
+                    </div>            
+                  </form>                     
 
 <!--Begin submit buttons row-->
 <div class = "row center">
