@@ -1,74 +1,20 @@
-
-
-$(document).ready(function() {
-  $(".parallax").parallax();
-  $(".dropdown-trigger").dropdown();
-  $(".collapsible").collapsible();
-  $(".submitAlready").click(function(){
-    var title = $("#bookTitle").val().trim();
-    var authorFirst = $("#authorFirst").val().trim();
-    var authorLast = $("#authorLast").val().trim();
-    var authorLast = $("#authorLast").val().trim();
-    var pagesNumber = $("#pagesNumber").val().trim();
-    var genre = $("#genre").val().trim();
-    var comments = $("#book-description").val().trim();
-    var rating = $("#rating").val();
-    var imageURL = $("#imageURL").val().trim();
-    var content = "Book Title:  " + title;
-    $("#bookContent").append("<p>content<p>");
-  });
-});
-
-//When user clicks submitCurrent button
-$("#submitCurrent").on("click", function(event) {
-  event.preventDefault();
-  //make a currentBook object
-  var currentBook = {
-    // eslint-disable-next-line prettier/prettier
-    user: $("#userName").val().trim(),
-    // eslint-disable-next-line prettier/prettier
-    title: $("#bookTitle").val().trim(),
-    // eslint-disable-next-line prettier/prettier
-    authorFirst: $("#authorFirst").val().trim(),
-    // eslint-disable-next-line prettier/prettier
-    authorLast: $("#authorLast").val().trim(),
-    // eslint-disable-next-line prettier/prettier
-    genre: $("#genre").val(),
-    pages: $("#pagesNumber").val().trim(),
-    comments: $("#book-description").val().trim(),
-    rating: $("#rating").val(),
-    image: $("#imageURL").val().trim(),
-  };
-  // send ajax post-request with jquery
-  $.post("/api/new", currentBook)
-    // On success, run the following code
-    .then(function(data) {
-      // Log the data we found
-      console.log(data);
-    });
-  // Empty each input box by replacing the value with an empty string
-  $("#userName").val("");
-  $("#bookTitle").val("");
-  $("#authorFirst").val("");
-  $("#authorLast").val("");
-  //$("#genre").val("");
-  $("#pagesNumber").val("");
-  $("#book-description").val("");
-  //$("#rating").val("");
-  $("#imageURL").val("");
-
-  //dynamically populate to currently reading card
-  $("#bookComment").append("<p>Description: </p>" + currentBook);
-});
 // Get references to page elements
 // eslint-disable-next-line no-unused-vars
 
-var $bookText = $("#book-text");
+var $userName = $("#userName")
+var $bookTitle = $("#bookTitle");
 var $bookDescription = $("#book-description");
+var $authorFirstName = $("#authorFirst");
+var $authorLastName = $("#authorLast");
+var $genre = $("#genre");
+var $pagesNumber = $("#pagesNumber");
+var $comments = $("#book-description");
+var $rating = $("#rating");
+var $imageURL = $("#imageURL");
 // eslint-disable-next-line no-unused-vars
 var $submitBtnCurrent = $("#submitCurrent");
 // eslint-disable-next-line no-unused-vars
-var $submitBtnPast = $("#submitPast");
+var $submitBtnPast = $("#submitAlready");
 // eslint-disable-next-line no-unused-vars
 var $submitBtnWishlist = $("#submitWishlist");
 var $bookList = $("#book-list");
@@ -115,7 +61,7 @@ var refreshbooks = function() {
         .append($a);
 
       var $button = $("<button>")
-        .addClass("btn btn-danger float-right delete")
+        .addClass("btn-large waves-effect waves-light blue-grey darken-1 fas fa-plus")
         .text("ｘ");
 
       $li.append($button);
@@ -134,7 +80,8 @@ var handleFormSubmit = function(event) {
   event.preventDefault();
 
   var book = {
-    name: $bookText.val().trim(),
+    Name: 
+    Title: $bookTitle.val().trim(),
     description: $bookDescription.val().trim()
   };
 
