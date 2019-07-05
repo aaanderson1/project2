@@ -149,7 +149,7 @@ module.exports = function (app) {
     });
 
     // Delete an Book by id
-    app.delete("/api/books/:id", function (req, res) {
+    app.delete("/api/books", function (req, res) {
         const data = req.body;
         if (!data.id) {
             res.json({
