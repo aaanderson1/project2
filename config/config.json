@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "omologator",
+    "password": null,
     "database": "pageturner_db",
     "host": "localhost",
     "dialect": "mysql"
