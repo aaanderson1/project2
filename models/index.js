@@ -73,12 +73,16 @@ Wishlist.belongsTo(User, {
 Wishlist.belongsTo(Book, {
 });
 Book.hasMany(CurrentlyReading, {
+    onDelete: "cascade"
 });
 Book.hasMany(Bookmark, {
+    onDelete: "cascade"
 });
 Book.hasMany(AlreadyRead, {
+    onDelete: "cascade"
 });
 Book.hasMany(Wishlist, {
+    onDelete: "cascade"
 });
 User.hasMany(Bookmark, {
     onDelete: "cascade"

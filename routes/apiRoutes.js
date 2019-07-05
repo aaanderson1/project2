@@ -7,7 +7,8 @@ module.exports = function (app) {
     ////
     // Get userId
     app.get("/api/user", function (req, res) {
-        const data = req.body;
+        const data = req.query;
+        console.log(data);
         if (!data.username) {
             res.json({
                 error: "username not provided"
@@ -179,7 +180,7 @@ module.exports = function (app) {
 
     // Get all Bookmarks
     app.get("/api/bookmarks", function (req, res) {
-        const data = req.body;
+        const data = req.query;
         if (!data.userId) {
             res.json({
                 error: "userId not provided"
@@ -289,7 +290,7 @@ module.exports = function (app) {
 
     // Get all AlreadyReads
     app.get("/api/already-read", function (req, res) {
-        const data = req.body;
+        const data = req.query;
         if (!data.userId) {
             res.json({
                 error: "userId not provided"
@@ -392,7 +393,7 @@ module.exports = function (app) {
 
     // Get all CurrentlyReadings
     app.get("/api/currently-reading", function (req, res) {
-        const data = req.body;
+        const data = req.query;
         if (!data.userId) {
             res.json({
                 error: "userId not provided"
@@ -494,7 +495,7 @@ module.exports = function (app) {
 
     // Get all Wishlists
     app.get("/api/wishlist", function (req, res) {
-        const data = req.body;
+        const data = req.query;
         if (!data.userId) {
             res.json({
                 error: "userId not provided"
