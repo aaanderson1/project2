@@ -51,11 +51,11 @@ const Bookmark = BookmarkModel(sequelize, Sequelize);
 const AlreadyRead = AlreadyReadModel(sequelize, Sequelize);
 const CurrentlyReading = CurrentlyReadingModel(sequelize, Sequelize);
 const Wishlist = WishlistModel(sequelize, Sequelize);
-Book.belongsTo(User, {
-    foreignKey: {
-        allowNull: false
-    }
-});
+// Book.belongsTo(User, {
+//     foreignKey: {
+//         allowNull: false
+//     }
+// });
 Bookmark.belongsTo(User, {
     foreignKey: {
         allowNull: false
@@ -83,9 +83,6 @@ Wishlist.belongsTo(User, {
     }
 });
 Book.hasMany(Wishlist, {
-});
-User.hasMany(Book, {
-    onDelete: "cascade"
 });
 User.hasMany(Bookmark, {
     onDelete: "cascade"
