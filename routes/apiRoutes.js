@@ -65,7 +65,7 @@ module.exports = function (app) {
         const shasum = crypto.createHash("sha1");
         const hashedPassword = shasum.update(data.password).digest("hex");
         console.log(hashedPassword);
-        body.password = hashedPassword;
+        data.password = hashedPassword;
         db.User.create(data)
         .then(function (user) {
             res.json(user);
@@ -186,8 +186,28 @@ module.exports = function (app) {
             });
             return;
         }
-        db.Bookmark.findAll({where: {userId: data.userId}}).then(function (bookmarks) {
-            res.json(bookmarks);
+        db.Bookmark.findAll({
+            where: {
+                userId: data.userId
+            },
+            include: {
+                model: db.Book,
+            }
+        }).then(function (bookmarks) {
+            const returnData = bookmarks.map(bookmark => {
+                return {
+                    id: bookmark.id,
+                    comment: bookmark.comment,
+                    page: bookmark.page,
+                    book: {
+                        id: bookmark.book.id,
+                        title: bookmark.book.title,
+                        author: bookmark.book.author,
+                        pages: bookmark.book.pages
+                    }
+                };
+            });
+            res.json(returnData);
         });
     });
 
@@ -276,8 +296,27 @@ module.exports = function (app) {
             });
             return;
         }
-        db.AlreadyRead.findAll({where: {userId: data.userId}}).then(function (alreadyReads) {
-            res.json(alreadyReads);
+        db.AlreadyRead.findAll({
+            where: {
+                userId: data.userId
+            },
+            include: {
+                model: db.Book,
+            }
+        }).then(function (alreadyReads) {
+            const returnData = alreadyReads.map(alreadyRead => {
+                return {
+                    id: alreadyRead.id,
+                    comment: alreadyRead.comment,
+                    book: {
+                        id: alreadyRead.book.id,
+                        title: alreadyRead.book.title,
+                        author: alreadyRead.book.author,
+                        pages: alreadyRead.book.pages
+                    }
+                };
+            });
+            res.json(returnData);
         });
     });
 
@@ -360,8 +399,27 @@ module.exports = function (app) {
             });
             return;
         }
-        db.CurrentlyReading.findAll({where: {userId: data.userId}}).then(function (currentlyReading) {
-            res.json(currentlyReading);
+        db.CurrentlyReading.findAll({
+            where: {
+                userId: data.userId
+            },
+            include: {
+                model: db.Book,
+            }
+        }).then(function (currentlyReading) {
+            const returnData = currentlyReading.map(currentlyReading => {
+                return {
+                    id: currentlyReading.id,
+                    comment: currentlyReading.comment,
+                    book: {
+                        id: currentlyReading.book.id,
+                        title: currentlyReading.book.title,
+                        author: currentlyReading.book.author,
+                        pages: currentlyReading.book.pages
+                    }
+                };
+            });
+            res.json(returnData);
         });
     });
 
@@ -443,8 +501,27 @@ module.exports = function (app) {
             });
             return;
         }
-        db.Wishlist.findAll({where: {userId: data.userId}}).then(function (wishlist) {
-            res.json(wishlist);
+        db.Wishlist.findAll({
+            where: {
+                userId: data.userId
+            },
+            include: {
+                model: db.Book,
+            }
+        }).then(function (wishlist) {
+            const returnData = wishlist.map(wishlist => {
+                return {
+                    id: wishlist.id,
+                    comment: wishlist.comment,
+                    book: {
+                        id: wishlist.book.id,
+                        title: wishlist.book.title,
+                        author: wishlist.book.author,
+                        pages: wishlist.book.pages
+                    }
+                };
+            });
+            res.json(returnData);
         });
     });
 

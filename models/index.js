@@ -57,30 +57,26 @@ const Wishlist = WishlistModel(sequelize, Sequelize);
 //     }
 // });
 Bookmark.belongsTo(User, {
-    foreignKey: {
-        allowNull: false
-    }
 });
-Book.hasMany(Bookmark, {
+Bookmark.belongsTo(Book, {
 });
 AlreadyRead.belongsTo(User, {
-    foreignKey: {
-        allowNull: false
-    }
 });
-Book.hasMany(AlreadyRead, {
+AlreadyRead.belongsTo(Book, {
 });
 CurrentlyReading.belongsTo(User, {
-    foreignKey: {
-        allowNull: false
-    }
+});
+CurrentlyReading.belongsTo(Book, {
+});
+Wishlist.belongsTo(User, {
+});
+Wishlist.belongsTo(Book, {
 });
 Book.hasMany(CurrentlyReading, {
 });
-Wishlist.belongsTo(User, {
-    foreignKey: {
-        allowNull: false
-    }
+Book.hasMany(Bookmark, {
+});
+Book.hasMany(AlreadyRead, {
 });
 Book.hasMany(Wishlist, {
 });
