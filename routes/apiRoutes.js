@@ -206,9 +206,15 @@ module.exports = function (app) {
             });
             return;
         }
-        if (!data.bookId) {
+        if (!data.page) {
             res.json({
-                error: "bookId not provided"
+                error: "page not provided"
+            });
+            return;
+        }
+        if (!data.comment) {
+            res.json({
+                error: "comment not provided"
             });
             return;
         }
@@ -240,6 +246,263 @@ module.exports = function (app) {
             return;
         }
         db.Bookmark.destroy({
+            where: {
+                id: data.id,
+                userId: data.userId
+            }
+        })
+        .then(function () {
+            res.json({});
+        })
+        .catch(function (err) {
+            console.log(err);
+            res.json({
+                error: err.name
+            });
+        });
+    });
+    
+
+    ////
+    // AlreadyRead
+    ////
+
+    // Get all AlreadyReads
+    app.get("/api/already-read", function (req, res) {
+        const data = req.body;
+        if (!data.userId) {
+            res.json({
+                error: "userId not provided"
+            });
+            return;
+        }
+        db.AlreadyRead.findAll({where: {userId: data.userId}}).then(function (alreadyReads) {
+            res.json(alreadyReads);
+        });
+    });
+
+    // Create a new AlreadyReads
+    app.post("/api/already-read", function (req, res) {
+        const data = req.body;
+        if (!data.userId) {
+            res.json({
+                error: "userId not provided"
+            });
+            return;
+        }
+        if (!data.bookId) {
+            res.json({
+                error: "bookId not provided"
+            });
+            return;
+        }
+        if (!data.comment) {
+            res.json({
+                error: "comment not provided"
+            });
+            return;
+        }
+        db.AlreadyRead.create(req.body)
+        .then(function (alreadyRead) {
+            res.json(alreadyRead);
+        })
+        .catch(function (err) {
+            console.log(err);
+            res.json({
+                error: err.name
+            });
+        });
+    });
+
+    // Delete an AlreadyReads by id
+    app.delete("/api/already-read", function (req, res) {
+        const data = req.body;
+        if (!data.userId) {
+            res.json({
+                error: "userId not provided"
+            });
+            return;
+        }
+        if (!data.id) {
+            res.json({
+                error: "id not provided"
+            });
+            return;
+        }
+        db.AlreadyRead.destroy({
+            where: {
+                id: data.id,
+                userId: data.userId
+            }
+        })
+        .then(function () {
+            res.json({});
+        })
+        .catch(function (err) {
+            console.log(err);
+            res.json({
+                error: err.name
+            });
+        });
+    });
+    
+
+    ////
+    // CurrentlyReading
+    ////
+
+    // Get all CurrentlyReadings
+    app.get("/api/currently-reading", function (req, res) {
+        const data = req.body;
+        if (!data.userId) {
+            res.json({
+                error: "userId not provided"
+            });
+            return;
+        }
+        db.CurrentlyReading.findAll({where: {userId: data.userId}}).then(function (currentlyReading) {
+            res.json(currentlyReading);
+        });
+    });
+
+    // Create a new CurrentlyReadings
+    app.post("/api/currently-reading", function (req, res) {
+        const data = req.body;
+        if (!data.userId) {
+            res.json({
+                error: "userId not provided"
+            });
+            return;
+        }
+        if (!data.bookId) {
+            res.json({
+                error: "bookId not provided"
+            });
+            return;
+        }
+        if (!data.comment) {
+            res.json({
+                error: "comment not provided"
+            });
+            return;
+        }
+        db.CurrentlyReading.create(req.body)
+        .then(function (currentlyReading) {
+            res.json(currentlyReading);
+        })
+        .catch(function (err) {
+            console.log(err);
+            res.json({
+                error: err.name
+            });
+        });
+    });
+
+    // Delete an CurrentlyReadings by id
+    app.delete("/api/currently-reading", function (req, res) {
+        const data = req.body;
+        if (!data.userId) {
+            res.json({
+                error: "userId not provided"
+            });
+            return;
+        }
+        if (!data.id) {
+            res.json({
+                error: "id not provided"
+            });
+            return;
+        }
+        db.CurrentlyReading.destroy({
+            where: {
+                id: data.id,
+                userId: data.userId
+            }
+        })
+        .then(function () {
+            res.json({});
+        })
+        .catch(function (err) {
+            console.log(err);
+            res.json({
+                error: err.name
+            });
+        });
+    });
+
+    ////
+    // Wishlist
+    ////
+
+    // Get all Wishlists
+    app.get("/api/wishlist", function (req, res) {
+        const data = req.body;
+        if (!data.userId) {
+            res.json({
+                error: "userId not provided"
+            });
+            return;
+        }
+        db.Wishlist.findAll({where: {userId: data.userId}}).then(function (wishlist) {
+            res.json(wishlist);
+        });
+    });
+
+    // Create a new Wishlists
+    app.post("/api/wishlist", function (req, res) {
+        const data = req.body;
+        if (!data.userId) {
+            res.json({
+                error: "userId not provided"
+            });
+            return;
+        }
+        if (!data.bookId) {
+            res.json({
+                error: "bookId not provided"
+            });
+            return;
+        }
+        if (!data.comment) {
+            res.json({
+                error: "comment not provided"
+            });
+            return;
+        }
+        if (!data.order) {
+            res.json({
+                error: "comment not provided"
+            });
+            return;
+        }
+        db.Wishlist.create(req.body)
+        .then(function (wishlist) {
+            res.json(wishlist);
+        })
+        .catch(function (err) {
+            console.log(err);
+            res.json({
+                error: err.name
+            });
+        });
+    });
+
+    // Delete an Wishlists by id
+    app.delete("/api/wishlist", function (req, res) {
+        const data = req.body;
+        if (!data.userId) {
+            res.json({
+                error: "userId not provided"
+            });
+            return;
+        }
+        if (!data.id) {
+            res.json({
+                error: "id not provided"
+            });
+            return;
+        }
+        db.Wishlist.destroy({
             where: {
                 id: data.id,
                 userId: data.userId
