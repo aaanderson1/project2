@@ -342,3 +342,7 @@ div.dt-button-info {
 .parallax-container-current {
   height: 500px;
 }
+
+.parallax{
+  position:static;
+}
