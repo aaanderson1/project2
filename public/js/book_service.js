@@ -65,14 +65,33 @@ class BookService {
 
     // userData contains name, username, and password
     createUser(userData) {
-        return $.ajax({
-            headers: {
-                "Content-Type": "application/json"
-            },
-            url: "api/user",
-            type: "POST",
-            data: userData
+        const promise = new Promise((resolve, reject) => {
+            $.ajax({
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    url: "api/user",
+                    type: "POST",
+                    data: JSON.stringify(userData)
+                })
+                .then(returnData => {
+                    if (returnData.error) {
+                        reject(returnData);
+                        return;
+                    }
+                    if (!returnData.id) {
+                        reject({
+                            error: "empty userId returned"
+                        });
+                        return;
+                    }
+                    this.userId = returnData.id;
+                    this.saveUser();
+                    resolve({});
+                });
         });
+
+        return promise;
     }
 
     // Books
