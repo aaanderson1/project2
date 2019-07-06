@@ -110,21 +110,13 @@
                           </div>
                           </div>
                     </div>
-                    <div class = "row">
-                        <div class="input-field col s6">
-                          <div class="form-group">
-                            <label for=""></label>
-                            <h6 class="gray-text">Image URL</h6>
-                            <input type="text" class="form-control" id="imageURL" placeholder="" value = "" name="Image URL">
-                          </div>
-                          </div>
-                    </div>            
+                              
                   </form>                     
 
 <!--Begin submit buttons row-->
 <div class = "row center">
     <button type = "submit" class = "btn-large waves-effect waves-light blue-grey darken-1 fas fa-plus" id = "submitCurrent"> Add to 'Currently Reading'</button>
-    <button id = "submitAlready" type = "submit" class = "btn-large waves-effect waves-light blue-grey darken-1 fas fa-plus" >Add to 'Already Read'</button>
+    <button id = "submitAlready" type = "submit" class = "btn-large waves-effect waves-light blue-grey darken-1 fas fa-plus" ><a href="#alreadyRead">Add to 'Already Read'</a></button>
     <button type = "submit" class = "btn-large waves-effect waves-light blue-grey darken-1 fas fa-plus" id = "submitWishlist"> Add to 'Wishlist'</button>
     
 </div>
@@ -190,35 +182,61 @@
               <br>
             <!--Already read table-->
             <div class = "row center">
-                <table id="alreadyReadTable">  
-                    <tr  data-toggle="toggle">  
-                        <td >  
-                                  </span>  
-                            <p id="Technology" class="blue-grey darken-1">  
-                                <b>  
-                                    <span class="plusminusTechnology">+</span>    
-                                    <span lang="EN-IN" id="bookname"><h6></h6></span>  
-                                </b>  
-                            </p>  
-                        </td>  
-                        <td ></td>  
-                        <td ></td>  
-                    </tr>  
-                    <tbody class="hideTr  blue-grey lighten-5">  
-                        <tr >  
-                            <!--<td id="authfirst"></td>  
-                            <td id="authlast"></td>  -->
-                            <td id="genredetail" width="200px"></td>  
-                            <td id="numberofpages" width="200px"></td>
-                            <tr id="bookdesc" width="200px"></tr>
-                            <tr id="ratingdetail" width="200px"></tr>
-
-                            
-                    </tbody>  
-                </table>
-                <div class = "row center">
-                  <button  type = "submit" class = "btn-large waves-effect waves-light blue-grey darken-1 fas fa-plus" id = "addCurrent"><a href="#book-form" class="black-text"> Add Another Book</a></button>
-                  </div>
+            <table class="table table-hover" id="participantTable">
+                    <thead>
+                        <tr>
+                            <th>&nbsp;</th>
+                            <th id="">Title</th>
+                            <th id="">Author First Name</th>
+                            <th id="">Author Last Name</th>
+                            <th id="">Genre</th>
+                            <th id="">No. of Pages</th>
+                            <th id="">Comments</th>
+                            <th id="">Rating</th>
+                        </tr>
+                    </thead>
+                    <!--Original submit already section-->
+                    <tr class="bookRow">
+                      <td>&nbsp;</td>
+                      <td id="bookname"></td>
+                      <td id="authfirst"></td>
+                      <td id="authlast"></td>
+                      <td id="genredetail"></td>
+                      <td id="numberofpages"></td>
+                      <td id="bookdesc"></td>
+                      <td id="ratingdetail"></td>
+                    </tr>
+                    <!--dynamic table-->
+                    <tr class="keepaddingbooksRow">
+                        <td>Keep adding books! <i class="fas fa-arrow-right"></i></td>
+                        <td><input name="" id="newBookTitle" type="text" placeholder="" class="required-entry">
+                          </td>
+                          <td><input name="" id="" type="text" placeholder="" class="required-entry">
+                          </td>
+                          <td><input name="" id="" type="text" placeholder="" class="required-entry">
+                          </td>
+                          <td><input name="" id="" type="text" placeholder="" class="required-entry">
+                          </td>
+                          <td><input name="" id="" type="text" placeholder="" class="required-entry">
+                          </td>
+                          <td><input name="" id="" type="text" placeholder="" class="required-entry">
+                          </td>
+                          <td><input name="" id="" type="text" placeholder="" class="required-entry">
+                          </td>
+                        <td>
+                            <select name="" id="" class="required-entry">
+                                <option value=""></option>
+                            </select>
+                        </td>
+                       <!-- <td><button class="btn btn-danger remove" type="button">Remove</button></td> -->
+                    </tr>
+                    <tr id="addButtonRow">
+                        <td colspan="4"><center><button class="btn-large waves-effect waves-light blue-grey darken-1 fas fa-plus add" type="button"> Add a New Book Line</button></center></td>
+                        <td colspan="4"><center><button class="btn-large waves-effect waves-light blue-grey darken-1 fas fa-plus" type="button"> Save to Your Library</button></center></td>
+                      
+                    </tr>
+            </table>
+                
   </div>
   </div>
   </div>
@@ -241,39 +259,7 @@
               <h2><b>Wishlist</b></h2>
               <br>
             <!--Wishlist table-->
-            <div class = "row center">
-                <table id="alreadyReadTable">  
-                    <tr  data-toggle="toggle">  
-                        <td >  
-                                  </span>  
-                            <p id="Technology" class="blue-grey darken-1">  
-                                <b>  
-                                    <span class="plusminusTechnology">+</span>    
-                                    <span lang="EN-IN" id="bookname"><h6></h6></span>  
-                                </b>  
-                            </p>  
-                        </td>  
-                        <td ></td>  
-                        <td ></td>  
-                    </tr>  
-                    <tbody class="hideTr  blue-grey lighten-5">  
-                        <tr >  
-                           <!-- <td id="authfirst"></td>  
-                            <td id="authlast"></td>  -->
-                            <td id="genredetail"></td>  
-                            <td id="numberofpages"></td>
-                            <tr id="bookdesc"></tr>
-                            <tr id="ratingdetail"></tr>
-
-                            
-                    </tbody>  
-                </table>
-                <div class = "row center">
-                  <button  type = "submit" class = "btn-large waves-effect waves-light blue-grey darken-1 fas fa-plus" id = "addCurrent"><a href="#book-form" class="black-text"> Add Another Book</a></button>
-                  </div>
-  </div>
-                
-  </div>
+            
   </div>
   </div>
   </div>
@@ -285,21 +271,9 @@
   $(document).ready(function() {
     $(".parallax").parallax();
     debugger;  
-        $('.hideTr').slideUp(600);  
-     $('[data-toggle="toggle"]').click(function () {  
-        if ($(this).parents().next(".hideTr").is(':visible')) {  
-            $(this).parents().next('.hideTr').slideUp(600);  
-            $(".plusminus" + $(this).children().children().attr("id")).text('+');  
-           //$(this).css('background-color', 'white');  
-            }  
-        else {  
-            $(this).parents().next('.hideTr').slideDown(600);  
-            $(".plusminus" + $(this).children().children().attr("id")).text('- ');  
-           //$(this).css('background-color', '#c1eaff ');    
-        }  
-    });  
-    
-    $("#submitAlready").click(function(){
+
+//original submit from form
+$("#submitAlready").click(function(){
       var userName = $("#userName").val().trim();
 var bookTitle = $("#bookTitle").val().trim();
 var authorFirstName = $("#authorFirst").val().trim();
@@ -308,7 +282,7 @@ var genre = $("#genre").val().trim();
 var pagesNumber = $("#pagesNumber").val().trim();
 var comments = $("#book-description").val().trim();
 var rating = $("#rating").val().trim();
-var imageURL = $("#imageURL").val().trim();
+
 // eslint-disable-next-line no-unused-vars
 var submitBtnCurrent = $("#submitCurrent");
 // eslint-disable-next-line no-unused-vars
@@ -323,57 +297,76 @@ var submitBtnWishlist = $("#submitWishlist");
     pagesNumber: pagesNumber,
     comments: comments,
     rating: rating,
-    imageURL: imageURL
+    
       }
-      //if (!(newBook.bookTitle && newBook.authorFirstName && newBook.authorLastName && newBook.genre && newBook.genre && newBook.pagesNumber && newBook.comments && newBook.rating &&
-   // newBook.imageURL)) {
-   // alert("You must enter your name, book title, author first name, author last name, genre, numbe of pages, comments, rating and image URL!");
-   // return;
-  //}
-    $("#bookname").append("<tr><td>" + newBook.bookTitle + " by " + newBook.authorFirstName + " " + newBook.authorLastName);
-    $("#genredetail").append("Genre: " + newBook.genre);
-    $("#numberofpages").append("Number of Pages: " + newBook.pagesNumber);
-    $("#bookdesc").append("Comments: " + newBook.comments);
-    $("#ratingdetail").append("Rating: " + newBook.rating + "</td></tr>");
-    $("#book-form").each(function(){
+      $("#bookname").append(newBook.bookTitle);
+      $("#authfirst").append(newBook.authorFirstName);
+      $("#authlast").append(newBook.authorLastName);
+      $("#genredetail").append(newBook.genre);
+      $("#ratingdetail").append(newBook.rating);
+      $("#book-form").each(function(){
     this.reset();
-    
-    
+    });
+  });
+      /* Variables */
+var p = $("#participants").val();
+var row = $(".keepaddingbooksRow");
+
+/* Functions */
+function getP(){
+  p = $("#participants").val();
+}
+
+function addRow() {
+  row.clone(true, true).appendTo("#participantTable");
+}
+
+//function removeRow(button) {
+ // button.closest("tr").remove();
+//}
+/* Doc ready */
+$(".add").on('click', function () {
+  getP();
+  if($("#participantTable tr").length < 17) {
+    addRow();
+    var i = Number(p)+1;
+    $("#participants").val(i);
+  }
+  $(this).closest("tr").appendTo("#participantTable");
+  if ($("#participantTable tr").length === 3) {
+    $(".remove").hide();
+  } else {
+    $(".remove").show();
+  }
 });
-    })
-    $("#submitCurrent").click(function(){
-      var userName = $("#userName").val().trim();
-var bookTitle = $("#bookTitle").val().trim();
-var authorFirstName = $("#authorFirst").val().trim();
-var authorLastName = $("#authorLast").val().trim();
-var genre = $("#genre").val().trim();
-var pagesNumber = $("#pagesNumber").val().trim();
-var comments = $("#book-description").val().trim();
-var rating = $("#rating").val().trim();
-var imageURL = $("#imageURL").val().trim();
-// eslint-disable-next-line no-unused-vars
-var submitBtnCurrent = $("#submitCurrent");
-// eslint-disable-next-line no-unused-vars
-var submitBtnPast = $("#submitAlready");
-// eslint-disable-next-line no-unused-vars
-var submitBtnWishlist = $("#submitWishlist");
-      var newBook = {
-      bookTitle: bookTitle,
-    authorFirstName: authorFirstName,
-    authorLastName: authorLastName,
-    genre: genre,
-    pagesNumber: pagesNumber,
-    comments: comments,
-    rating: rating,
-    imageURL: imageURL
-      }
-      $("#currentBookDetails").append("<p>Book Title: " + newBook.bookTitle + "<p> Author Name: " + newBook.authorFirstName + " " + newBook.authorLastName +
-        "<p>Genre: " + newBook.genre + "No. of Pages: " + newBook.pagesNumber + "<p>Comments: " + newBook.comments + "<p>Rating: " + newBook.rating);
-          $("#book-form").each(function(){
-    this.reset();
-    
+$(".remove").on('click', function () {
+  getP();
+  if($("#participantTable tr").length === 3) {
+    //alert("Can't remove row.");
+    $(".remove").hide();
+  } else if($("#participantTable tr").length - 1 ==3) {
+    $(".remove").hide();
+    removeRow($(this));
+    var i = Number(p)-1;
+    $("#participants").val(i);
+  } else {
+    removeRow($(this));
+    var i = Number(p)-1;
+    $("#participants").val(i);
+  }
 });
-        });
+$("#participants").change(function () {
+  var i = 0;
+  p = $("#participants").val();
+  var rowCount = $("#participantTable tr").length - 2;
+  if(p > rowCount) {
+    for(i=rowCount; i<p; i+=1){
+      addRow();
+    }
+    $("#participantTable #addButtonRow").appendTo("#participantTable");
+  } else if(p < rowCount) {
+  }
+});
   });
   
 </script>
