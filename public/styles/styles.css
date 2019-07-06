@@ -334,3 +334,7 @@ div.dt-button-info {
     text-align: center;
   }
 }
+
+.parallax-container {
+  height: 800px;
+}
