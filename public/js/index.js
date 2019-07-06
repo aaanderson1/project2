@@ -5,15 +5,6 @@ $(document).ready(function() {
 
 
 
-var userName = $("#userName").val();
-var bookTitle = $("#bookTitle").val();
-var authorFirstName = $("#authorFirst").val();
-var authorLastName = $("#authorLast").val();
-var genre = $("#genre").val();
-var pagesNumber = $("#pagesNumber").val();
-var comments = $("#book-description").val();
-var rating = $("#rating").val();
-var imageURL = $("#imageURL").val();
 // eslint-disable-next-line no-unused-vars
 var submitBtnCurrent = $("#submitCurrent");
 // eslint-disable-next-line no-unused-vars
@@ -72,48 +63,21 @@ var refreshbooks = function() {
       return $li;
     });
 
-    $bookList.empty();
-    $bookList.append($books);
+    bookList.empty();
+    bookList.append($books);
   });
 };
 
 // handleFormSubmit is called whenever we submit a new book
 // Save the new book to the db and refresh the list
-var handleFormSubmit = function(event) {
+var handleFormSubmit = function() {
   
-  event.preventDefault();
-
-  var book = {
-    Name: userName,
-    Title: bookTitle,
-    authorFirst: authorFirstName,
-    authorLast: authorLastName,
-    Genre: genre,
-    Pages: pagesNumber,
-    Comments: comments,
-    Rating: rating,
-    Image: imageURL
-  };
-
-  if (!(book.name && book.title && book.authorFirst && book.authorLast && book.Genre && book.Pages && book.Comments && book.Rating &&
-    book.Image)) {
-    alert("You must enter your name, book title, author first name, author last name, genre, numbe of pages, comments, rating and image URL!");
-    return;
-  }
 
   API.saveBook(book).then(function() {
     refreshbooks();
   });
 
-  userName.val("");
-  bookTitle.val("");
-  authorFirstName.val("");
-  authorLastName.val("");
-  genre.val("");
-  pagesNumber.val("");
-  comments.val("");
-  rating.val("");
-  imageURL.val(""); 
+ 
 };
 
 // handleDeleteBtnClick is called when an book's delete button is clicked

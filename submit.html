@@ -189,32 +189,33 @@
               <h2><b>Already Read</b></h2>
               <br>
             <!--Already read table-->
-            <div class = "row">
-              <table>
-                <thead>
-                  <tr>
-                      <th data-field="bookTitle">Title</th>
-                      <th data-field="bookDetails">Book Details</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                  <td>
-                    <p class="table-metric-color">Book Title</p>
-                  </td>
-                  <td>
-                    <ul class="collapsible" data-collapsible="accordion">
-                      <li>
-                        <div class="collapsible-header" id= "alreadyReadDetails"></div>
-                        <p class="collapsible-body white" id = "bookContent"><code></code></p>
-                      </li>
-                    </ul>
-                  </td>
-                </tr>
-                </tbody>
-              </table>
-            </div>
-                
+            <div class = "row center">
+                <table id="alreadyReadTable">  
+                    <tr  data-toggle="toggle">  
+                        <td >  
+                                  </span>  
+                            <p id="Technology" class="blue-grey darken-1">  
+                                <b>  
+                                    <span class="plusminusTechnology">+</span>    
+                                    <span lang="EN-IN" id="bookname"><h6></h6></span>  
+                                </b>  
+                            </p>  
+                        </td>  
+                        <td ></td>  
+                        <td ></td>  
+                    </tr>  
+                    <tbody class="hideTr  blue-grey lighten-5">  
+                        <tr >  
+                            <td id="authfirst"></td>  
+                            <td id="authlast"></td>  
+                            <td id="genredetail"></td>  
+                            <td id="numberofpages"></td>
+                            <tr id="bookdesc"></tr>
+                            <tr id="ratingdetail"></tr>
+
+                        </tr>  
+                    </tbody>  
+                </table>
   </div>
   </div>
   </div>
@@ -272,6 +273,21 @@
 
 <script>
   $(document).ready(function() {
+    debugger;  
+        $('.hideTr').slideUp(600);  
+     $('[data-toggle="toggle"]').click(function () {  
+        if ($(this).parents().next(".hideTr").is(':visible')) {  
+            $(this).parents().next('.hideTr').slideUp(600);  
+            $(".plusminus" + $(this).children().children().attr("id")).text('+');  
+           //$(this).css('background-color', 'white');  
+            }  
+        else {  
+            $(this).parents().next('.hideTr').slideDown(600);  
+            $(".plusminus" + $(this).children().children().attr("id")).text('- ');  
+           //$(this).css('background-color', '#c1eaff ');    
+        }  
+    });  
+    
     $("#submitAlready").click(function(){
       var userName = $("#userName").val().trim();
 var bookTitle = $("#bookTitle").val().trim();
@@ -288,6 +304,7 @@ var submitBtnCurrent = $("#submitCurrent");
 var submitBtnPast = $("#submitAlready");
 // eslint-disable-next-line no-unused-vars
 var submitBtnWishlist = $("#submitWishlist");
+
       var newBook = {
       bookTitle: bookTitle,
     authorFirstName: authorFirstName,
@@ -298,10 +315,22 @@ var submitBtnWishlist = $("#submitWishlist");
     rating: rating,
     imageURL: imageURL
       }
-    $("#alreadyReadDetails").append("Book Title: " + newBook.bookTitle  + "<p>Author First Name: <p>" + newBook.authorFirstName);
-    //("<p>Book Title: <p>" + newbook.bookTitle + "<p>Author First Name: <p>" + newbook.authorFirstName + 
-     // "<p>Author Last Name: <p>" + newbook.authorLastName + "<p>Genre: <p>" + newBook.genre + "<p>Number of Pages: <p>" + newbook.pagesNumber + 
-      //    "<p>Book Description/Comments: <p>" + newbook.comments + "<p>Rating: <p>" + newbook.rating + "<p>Image: <p>" + newbook.imageURL);
+
+      //if (!(newBook.bookTitle && newBook.authorFirstName && newBook.authorLastName && newBook.genre && newBook.genre && newBook.pagesNumber && newBook.comments && newBook.rating &&
+   // newBook.imageURL)) {
+   // alert("You must enter your name, book title, author first name, author last name, genre, numbe of pages, comments, rating and image URL!");
+   // return;
+  //}
+    $("#bookname").append("<tr><td>Book Title: </td><td>" + newBook.bookTitle);
+    $("#authfirst").append("<tr><td>Author First Name: </td><td>" + newBook.authorFirstName);
+    $("#authlast").append("<tr><td>Author Last Name: </td><td>" + newBook.authorLastName);
+    $("#genredetail").append("<tr><td>Genre: </td><td>" + newBook.genre);
+    $("#numberofpages").append("<tr><td>Number of Pages: </td><td>" + newBook.pagesNumber);
+    $("#bookdesc").append("<tr><td>Comments: </td><td>" + newBook.comments);
+    $("#ratingdetail").append("<tr><td>Rating: </td><td>" + newBook.rating + "</td></tr>");
+    $("#book-form").each(function(){
+    this.reset();
+});
     })
   });
   
