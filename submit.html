@@ -153,10 +153,10 @@
                                 <h2 class="header"></h2>
                                 <div class="card horizontal">
                                   <div class="card-image">
-                                    <img src="https://images-na.ssl-images-amazon.com/images/I/81qzvzCEyUL.jpg" width="100" height="190" id = "currentbookImage">
+                                    <img src="" width="100" height="190" id = "currentbookImage">
                                   </div>
                                   <div class="card-stacked">
-                                    <div class="card-content" id ="bookComment">
+                                    <div class="card-content left-align" id ="currentBookDetails">
                                       <p></p>
                                     </div>
                                     <div class="card-action">
@@ -216,6 +216,9 @@
                             
                     </tbody>  
                 </table>
+                <div class = "row center">
+                  <button  type = "submit" class = "btn-large waves-effect waves-light blue-grey darken-1 fas fa-plus" id = "addCurrent"><a href="#book-form" class="black-text"> Add Another Book</a></button>
+                  </div>
   </div>
   </div>
   </div>
@@ -227,41 +230,48 @@
 
 <!-- Wishlist section-->
 
-<div id="alreadyRead" class="parallax-container">
+<div id="wishlist" class="parallax-container">
   <div class="parallax">
       <img src="public/images/wishlist2.jpg">
   </div>
   <div class = "container">
+    
       <div class="row center">
           <div class="col s12 center gray-text">
               <h2><b>Wishlist</b></h2>
               <br>
-            <!--Already read table-->
-            <div class = "row">
-              <table>
-                <thead>
-                  <tr>
-                      <th data-field="bookTitle">Title</th>
-                      <th data-field="bookDetails">Book Details</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                  <td>
-                    <p class="table-metric-color">Book Title</p>
-                  </td>
-                  <td>
-                    <ul class="collapsible" data-collapsible="accordion">
-                      <li>
-                        <div class="collapsible-header">Click here for details</div>
-                        <p class="collapsible-body white" id = "wishlistContent"><code></code></p>
-                      </li>
-                    </ul>
-                  </td>
-                </tr>
-                </tbody>
-              </table>
-            </div>
+            <!--Wishlist table-->
+            <div class = "row center">
+                <table id="alreadyReadTable">  
+                    <tr  data-toggle="toggle">  
+                        <td >  
+                                  </span>  
+                            <p id="Technology" class="blue-grey darken-1">  
+                                <b>  
+                                    <span class="plusminusTechnology">+</span>    
+                                    <span lang="EN-IN" id="bookname"><h6></h6></span>  
+                                </b>  
+                            </p>  
+                        </td>  
+                        <td ></td>  
+                        <td ></td>  
+                    </tr>  
+                    <tbody class="hideTr  blue-grey lighten-5">  
+                        <tr >  
+                            <td id="authfirst"></td>  
+                            <td id="authlast"></td>  
+                            <td id="genredetail"></td>  
+                            <td id="numberofpages"></td>
+                            <tr id="bookdesc"></tr>
+                            <tr id="ratingdetail"></tr>
+
+                            
+                    </tbody>  
+                </table>
+                <div class = "row center">
+                  <button  type = "submit" class = "btn-large waves-effect waves-light blue-grey darken-1 fas fa-plus" id = "addCurrent"><a href="#book-form" class="black-text"> Add Another Book</a></button>
+                  </div>
+  </div>
                 
   </div>
   </div>
@@ -304,7 +314,6 @@ var submitBtnCurrent = $("#submitCurrent");
 var submitBtnPast = $("#submitAlready");
 // eslint-disable-next-line no-unused-vars
 var submitBtnWishlist = $("#submitWishlist");
-
       var newBook = {
       bookTitle: bookTitle,
     authorFirstName: authorFirstName,
@@ -315,7 +324,6 @@ var submitBtnWishlist = $("#submitWishlist");
     rating: rating,
     imageURL: imageURL
       }
-
       //if (!(newBook.bookTitle && newBook.authorFirstName && newBook.authorLastName && newBook.genre && newBook.genre && newBook.pagesNumber && newBook.comments && newBook.rating &&
    // newBook.imageURL)) {
    // alert("You must enter your name, book title, author first name, author last name, genre, numbe of pages, comments, rating and image URL!");
@@ -330,10 +338,42 @@ var submitBtnWishlist = $("#submitWishlist");
     $("#ratingdetail").append("<tr><td>Rating: </td><td>" + newBook.rating + "</td></tr>");
     $("#book-form").each(function(){
     this.reset();
-
+    
 });
     })
+    $("#submitCurrent").click(function(){
+      var userName = $("#userName").val().trim();
+var bookTitle = $("#bookTitle").val().trim();
+var authorFirstName = $("#authorFirst").val().trim();
+var authorLastName = $("#authorLast").val().trim();
+var genre = $("#genre").val().trim();
+var pagesNumber = $("#pagesNumber").val().trim();
+var comments = $("#book-description").val().trim();
+var rating = $("#rating").val().trim();
+var imageURL = $("#imageURL").val().trim();
+// eslint-disable-next-line no-unused-vars
+var submitBtnCurrent = $("#submitCurrent");
+// eslint-disable-next-line no-unused-vars
+var submitBtnPast = $("#submitAlready");
+// eslint-disable-next-line no-unused-vars
+var submitBtnWishlist = $("#submitWishlist");
+      var newBook = {
+      bookTitle: bookTitle,
+    authorFirstName: authorFirstName,
+    authorLastName: authorLastName,
+    genre: genre,
+    pagesNumber: pagesNumber,
+    comments: comments,
+    rating: rating,
+    imageURL: imageURL
+      }
+      $("#currentBookDetails").append("<p>Book Title: " + newBook.bookTitle + "<p> Author Name: " + newBook.authorFirstName + " " + newBook.authorLastName +
+        "<p>Genre: " + newBook.genre + "No. of Pages: " + newBook.pagesNumber + "<p>Comments: " + newBook.comments + "<p>Rating: " + newBook.rating);
+          $("#book-form").each(function(){
+    this.reset();
     
+});
+        });
   });
   
 </script>

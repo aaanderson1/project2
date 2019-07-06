@@ -49,15 +49,12 @@ var refreshbooks = function() {
 var handleFormSubmit = function() {
   
 
-<<<<<<< HEAD
   //API.saveBook(book).then(function() {
     //refreshbooks();
   //});
-=======
   bookService.createBook(book).then(function() {
     refreshbooks();
   });
->>>>>>> master
 
  
 };
