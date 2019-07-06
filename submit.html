@@ -206,12 +206,12 @@
                     </tr>  
                     <tbody class="hideTr  blue-grey lighten-5">  
                         <tr >  
-                            <td id="authfirst"></td>  
-                            <td id="authlast"></td>  
-                            <td id="genredetail"></td>  
-                            <td id="numberofpages"></td>
-                            <tr id="bookdesc"></tr>
-                            <tr id="ratingdetail"></tr>
+                            <!--<td id="authfirst"></td>  
+                            <td id="authlast"></td>  -->
+                            <td id="genredetail" width="200px"></td>  
+                            <td id="numberofpages" width="200px"></td>
+                            <tr id="bookdesc" width="200px"></tr>
+                            <tr id="ratingdetail" width="200px"></tr>
 
                             
                     </tbody>  
@@ -258,8 +258,8 @@
                     </tr>  
                     <tbody class="hideTr  blue-grey lighten-5">  
                         <tr >  
-                            <td id="authfirst"></td>  
-                            <td id="authlast"></td>  
+                           <!-- <td id="authfirst"></td>  
+                            <td id="authlast"></td>  -->
                             <td id="genredetail"></td>  
                             <td id="numberofpages"></td>
                             <tr id="bookdesc"></tr>
@@ -283,6 +283,7 @@
 
 <script>
   $(document).ready(function() {
+    $(".parallax").parallax();
     debugger;  
         $('.hideTr').slideUp(600);  
      $('[data-toggle="toggle"]').click(function () {  
@@ -329,15 +330,14 @@ var submitBtnWishlist = $("#submitWishlist");
    // alert("You must enter your name, book title, author first name, author last name, genre, numbe of pages, comments, rating and image URL!");
    // return;
   //}
-    $("#bookname").append("<tr><td>Book Title: </td><td>" + newBook.bookTitle);
-    $("#authfirst").append("<tr><td>Author First Name: </td><td>" + newBook.authorFirstName);
-    $("#authlast").append("<tr><td>Author Last Name: </td><td>" + newBook.authorLastName);
-    $("#genredetail").append("<tr><td>Genre: </td><td>" + newBook.genre);
-    $("#numberofpages").append("<tr><td>Number of Pages: </td><td>" + newBook.pagesNumber);
-    $("#bookdesc").append("<tr><td>Comments: </td><td>" + newBook.comments);
-    $("#ratingdetail").append("<tr><td>Rating: </td><td>" + newBook.rating + "</td></tr>");
+    $("#bookname").append("<tr><td>" + newBook.bookTitle + " by " + newBook.authorFirstName + " " + newBook.authorLastName);
+    $("#genredetail").append("Genre: " + newBook.genre);
+    $("#numberofpages").append("Number of Pages: " + newBook.pagesNumber);
+    $("#bookdesc").append("Comments: " + newBook.comments);
+    $("#ratingdetail").append("Rating: " + newBook.rating + "</td></tr>");
     $("#book-form").each(function(){
     this.reset();
+    
     
 });
     })
