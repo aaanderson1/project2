@@ -1,22 +1,17 @@
+$(document).ready(function() {
+  $(".parallax").parallax();
 // Get references to page elements
 // eslint-disable-next-line no-unused-vars
 
-var $userName = $("#userName").val().trim();
-var $bookTitle = $("#bookTitle").val().trim();
-var $authorFirstName = $("#authorFirst").val().trim();
-var $authorLastName = $("#authorLast").val().trim();
-var $genre = $("#genre").val().trim();
-var $pagesNumber = $("#pagesNumber").val().trim();
-var $comments = $("#book-description").val().trim();
-var $rating = $("#rating").val().trim();
-var $imageURL = $("#imageURL").val().trim();
+
+
 // eslint-disable-next-line no-unused-vars
-var $submitBtnCurrent = $("#submitCurrent");
+var submitBtnCurrent = $("#submitCurrent");
 // eslint-disable-next-line no-unused-vars
-var $submitBtnPast = $("#submitAlready");
+var submitBtnPast = $("#submitAlready");
 // eslint-disable-next-line no-unused-vars
-var $submitBtnWishlist = $("#submitWishlist");
-var $bookList = $("#book-list");
+var submitBtnWishlist = $("#submitWishlist");
+var bookList = $("#book-list");
 
 var bookService = new BookService();
 
@@ -44,48 +39,21 @@ var refreshbooks = function() {
       return $li;
     });
 
-    $bookList.empty();
-    $bookList.append($books);
+    bookList.empty();
+    bookList.append($books);
   });
 };
 
 // handleFormSubmit is called whenever we submit a new book
 // Save the new book to the db and refresh the list
-var handleFormSubmit = function(event) {
-
-  event.preventDefault();
-
-  var book = {
-    Name: $userName,
-    Title: $bookTitle,
-    authorFirst: $authorFirstName,
-    authorLast: $authorLastName,
-    Genre: $genre,
-    Pages: $pagesNumber,
-    Comments: $comments,
-    Rating: $rating,
-    Image: $imageURL
-  };
-
-  if (!(book.name && book.title && book.authorFirst && book.authorLast && book.Genre && book.Pages && book.Comments && book.Rating &&
-    book.Image)) {
-    alert("You must enter your name, book title, author first name, author last name, genre, numbe of pages, comments, rating and image URL!");
-    return;
-  }
+var handleFormSubmit = function() {
+  
 
   bookService.createBook(book).then(function() {
     refreshbooks();
   });
 
-  $userName.val("");
-  $bookTitle.val("");
-  $authorFirstName.val("");
-  $authorLastName.val("");
-  $genre.val("");
-  $pagesNumber.val("");
-  $comments.val("");
-  $rating.val("");
-  $imageURL.val(""); 
+ 
 };
 
 // handleDeleteBtnClick is called when an book's delete button is clicked
@@ -101,5 +69,6 @@ var handleDeleteBtnClick = function() {
 };
 
 // Add event listeners to the submit and delete buttons
-$submitBtnCurrent.on("click", handleFormSubmit);
-$bookList.on("click", ".delete", handleDeleteBtnClick);
+submitBtnCurrent.on("click", handleFormSubmit);
+bookList.on("click", ".delete", handleDeleteBtnClick);
+});
