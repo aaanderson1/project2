@@ -39,13 +39,13 @@
                        <h5 id="mainText" class="fas fa-plus center" style="color: #eceff1"><b> ADD A <b> BOOK </b></h5>
                         <hr class = "hr.withstyle"></hr>
                 <!--Begin user name input-->
-                 <form class="col 12" method= "POST" role="form">
+                 <form id = "book-form" class="col 12" method= "POST" role="form">
                     <div class = "row">
                         <div class="input-field col s6">
                           <div class="form-group">
                             <label for=""></label>
                             <h6 class="gray-text">Your Name</h6>
-                            <input type="text" class="form-control" id="userName" placeholder="">
+                            <input type="text" class="form-control" id="userName" placeholder="" value = "" name="User Name">
                           </div>
                           </div>
                     </div>
@@ -54,7 +54,7 @@
                           <div class="form-group">
                             <label for=""></label>
                             <h6 class="gray-text">Book Title</h6>
-                            <input type="text" class="form-control" id="bookTitle" placeholder="">
+                            <input type="text" class="form-control" id="bookTitle" placeholder="" value = "" name="Book Title"> 
                           </div>
                           </div>
                     </div>
@@ -63,14 +63,14 @@
                           <div class="form-group">
                             <label for=""></label>
                             <h6 class="gray-text">Author First Name</h6>
-                            <input type="text" class="form-control" id="authorFirst" placeholder="">
+                            <input type="text" class="form-control" id="authorFirst" placeholder="" value = "" name="Author First Name">
                           </div>
                           </div>
                         <div class="input-field col s6">
                           <div class="form-group">
                             <label for=""></label>
                             <h6 class="gray-text">Author Last Name</h6>
-                            <input type="text" class="form-control" id="authorLast" placeholder="">
+                            <input type="text" class="form-control" id="authorLast" placeholder="" value = "" name="Author Last Name">
                           </div>
                         </div>
                     </div>
@@ -79,7 +79,7 @@
                           <div class="form-group">
                             <label for=""></label>
                             <h6 class="gray-text">Genre (Fiction, Non-Fiction, Action/Adventure, Mystery, Thriller, Children, Romance, or Self-Help)</h6>
-                            <input type="text" class="form-control" id="genre" placeholder="">
+                            <input type="text" class="form-control" id="genre" placeholder="" value = "" name="Genre">
                           </div>
                           </div>
                     </div>
@@ -88,7 +88,7 @@
                           <div class="form-group">
                             <label for=""></label>
                             <h6 class="gray-text">Number of Pages</h6>
-                            <input type="number" class="form-control" id="pagesNumber" placeholder="">
+                            <input type="number" class="form-control" id="pagesNumber" placeholder="" value = "" name="Number of Pages">
                           </div>
                           </div>
                     </div>
@@ -97,7 +97,7 @@
                           <div class="form-group">
                             <label for=""></label>
                             <h6 class="gray-text">Book Description/Comments</h6>
-                            <input type="text" class="form-control" id="book-description" placeholder="">
+                            <textarea type="text" class="form-control" id="book-description" placeholder="" value = "" name="Book Description/Comments"></textarea>
                           </div>
                           </div>
                     </div>
@@ -106,7 +106,7 @@
                           <div class="form-group">
                             <label for=""></label>
                             <h6 class="gray-text">Rating (out of 5. 1 = Terrible; 5 = Awesome)</h6>
-                            <input type="number" class="form-control" id="rating" placeholder="" min="1" max="5">
+                            <input type="number" class="form-control" id="rating" placeholder="" min="1" max="5" value = "" name="Rating">
                           </div>
                           </div>
                     </div>
@@ -115,7 +115,7 @@
                           <div class="form-group">
                             <label for=""></label>
                             <h6 class="gray-text">Image URL</h6>
-                            <input type="text" class="form-control" id="imageURL" placeholder="">
+                            <input type="text" class="form-control" id="imageURL" placeholder="" value = "" name="Image URL">
                           </div>
                           </div>
                     </div>            
@@ -123,9 +123,9 @@
 
 <!--Begin submit buttons row-->
 <div class = "row center">
-    <button type = "button" class = "btn-large waves-effect waves-light blue-grey darken-1 fas fa-plus" id = "#submitCurrent"> Add to 'Currently Reading'</button>
-    <button type = "button" class = "btn-large waves-effect waves-light blue-grey darken-1 fas fa-plus" id = "#submitAlready"> Add to 'Already Read'</button>
-    <button type = "button" class = "btn-large waves-effect waves-light blue-grey darken-1 fas fa-plus" id = "#submitWishlist"> Add to 'Wishlist'</button>
+    <button type = "submit" class = "btn-large waves-effect waves-light blue-grey darken-1 fas fa-plus" id = "submitCurrent"> Add to 'Currently Reading'</button>
+    <button id = "submitAlready" type = "submit" class = "btn-large waves-effect waves-light blue-grey darken-1 fas fa-plus" >Add to 'Already Read'</button>
+    <button type = "submit" class = "btn-large waves-effect waves-light blue-grey darken-1 fas fa-plus" id = "submitWishlist"> Add to 'Wishlist'</button>
     
 </div>
 </div>
@@ -205,7 +205,7 @@
                   <td>
                     <ul class="collapsible" data-collapsible="accordion">
                       <li>
-                        <div class="collapsible-header">Click here for details</div>
+                        <div class="collapsible-header" id= "alreadyReadDetails"></div>
                         <p class="collapsible-body white" id = "bookContent"><code></code></p>
                       </li>
                     </ul>
@@ -271,5 +271,38 @@
 </html>
 
 <script>
-
+  $(document).ready(function() {
+    $("#submitAlready").click(function(){
+      var userName = $("#userName").val().trim();
+var bookTitle = $("#bookTitle").val().trim();
+var authorFirstName = $("#authorFirst").val().trim();
+var authorLastName = $("#authorLast").val().trim();
+var genre = $("#genre").val().trim();
+var pagesNumber = $("#pagesNumber").val().trim();
+var comments = $("#book-description").val().trim();
+var rating = $("#rating").val().trim();
+var imageURL = $("#imageURL").val().trim();
+// eslint-disable-next-line no-unused-vars
+var submitBtnCurrent = $("#submitCurrent");
+// eslint-disable-next-line no-unused-vars
+var submitBtnPast = $("#submitAlready");
+// eslint-disable-next-line no-unused-vars
+var submitBtnWishlist = $("#submitWishlist");
+      var newBook = {
+      bookTitle: bookTitle,
+    authorFirstName: authorFirstName,
+    authorLastName: authorLastName,
+    genre: genre,
+    pagesNumber: pagesNumber,
+    comments: comments,
+    rating: rating,
+    imageURL: imageURL
+      }
+    $("#alreadyReadDetails").append("Book Title: " + newBook.bookTitle  + "<p>Author First Name: <p>" + newBook.authorFirstName);
+    //("<p>Book Title: <p>" + newbook.bookTitle + "<p>Author First Name: <p>" + newbook.authorFirstName + 
+     // "<p>Author Last Name: <p>" + newbook.authorLastName + "<p>Genre: <p>" + newBook.genre + "<p>Number of Pages: <p>" + newbook.pagesNumber + 
+      //    "<p>Book Description/Comments: <p>" + newbook.comments + "<p>Rating: <p>" + newbook.rating + "<p>Image: <p>" + newbook.imageURL);
+    })
+  });
+  
 </script>
