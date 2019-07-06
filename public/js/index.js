@@ -105,4 +105,5 @@ $(document).ready(function () {
     // Add event listeners to the submit and delete buttons
     submitBtnCurrent.on("click", handleFormSubmit);
     bookList.on("click", ".delete", handleDeleteBtnClick);
+    refreshbooks();
 });

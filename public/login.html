@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <div>
+        <div><input type="text" class="form-control" id="name" placeholder="name (only for create)"></div>
+        <div><input type="text" class="form-control" id="username" placeholder="username"></div>
+        <div><input type="text" class="form-control" id="password" placeholder="password"></div>
+    </div>
+    <button type="button" class="btn-large waves-effect waves-light blue-grey darken-1 fas fa-plus"
+        id="createnewbutton">Create New</button>
+    <button type="button" class="btn-large waves-effect waves-light blue-grey darken-1 fas fa-plus"
+        id="loginbutton">Login</button>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/book_service.js"></script>
+    <script>
+        (() => {
+            const bookService = new BookService();
+            if (bookService.loggedIn()) {
+                window.location = window.location.origin + "/index.html";
+                return;
+            }
+            $("#createnewbutton").click(() => {
+                bookService
+                    .createUser({
+                        name: $("#name").val(),
+                        username: $("#username").val(),
+                        password: $("#password").val(),
+                    })
+                    .then(() => {
+                        window.location = window.location.origin + "/index.html";
+                    }, (err) => {
+                        alert("Failed to Login with credentials. Please use correct credentials or create new login.");
+                    });
+            });
+            $("#loginbutton").click(() => {
+                bookService
+                    .login({
+                        username: $("#username").val(),
+                        password: $("#password").val(),
+                    })
+                    .then(() => {
+                        window.location = window.location.origin + "/index.html";
+                    }, (err) => {
+                        alert("Failed to Login with credentials. Please use correct credentials or create new login.");
+                    });
+            });
+        })();
+    </script>
+</body>
+
+</html>
