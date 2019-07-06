@@ -13,35 +13,11 @@ var submitBtnPast = $("#submitAlready");
 var submitBtnWishlist = $("#submitWishlist");
 var bookList = $("#book-list");
 
-// The API object contains methods for each kind of request we'll make
-var API = {
-  saveBook: function(book) {
-    return $.ajax({
-      headers: {
-        "Content-Type": "application/json"
-      },
-      type: "POST",
-      url: "api/books",
-      data: JSON.stringify(book)
-    });
-  },
-  getBook: function() {
-    return $.ajax({
-      url: "api/books",
-      type: "GET"
-    });
-  },
-  deleteBook: function(id) {
-    return $.ajax({
-      url: "api/books/" + id,
-      type: "DELETE"
-    });
-  }
-};
+var bookService = new BookService();
 
 // refreshbooks gets new books from the db and repopulates the list
 var refreshbooks = function() {
-  API.getbooks().then(function(data) {
+    bookService.getbooks().then(function(data) {
     var $books = data.map(function(book) {
       var $a = $("<a>")
         .text(book.text)
@@ -73,9 +49,15 @@ var refreshbooks = function() {
 var handleFormSubmit = function() {
   
 
-  //API.saveBook(book).then(function() {
-    //refreshbooks();
-  //});
+
+  API.saveBook(book).then(function() {
+    refreshbooks();
+  });
+
+  bookService.createBook(book).then(function() {
+    refreshbooks();
+  });
+
 
  
 };
@@ -87,7 +69,7 @@ var handleDeleteBtnClick = function() {
     .parent()
     .attr("data-id");
 
-  API.deleteBook(idToDelete).then(function() {
+  bookService.deleteBook(idToDelete).then(function() {
     refreshbooks();
   });
 };

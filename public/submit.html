@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Turner | A book-saver app!</title>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="public/styles/styles.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <script src="js/book_service.js"></script>
+     <script src="js/index.js"></script>
+</head>
+
+<body>
+    <div class="navbar-fixed">
+            <nav class="blue-grey darken-1 body">
+                <div class="container">
+                    <div class="nav-wrapper header">
+                        <a href="#" class="brand-logo"></a>
+                        <ul class="right hide-on-med-and-down" id="navList">
+                            <li><a href="#landing">Home</a></li>
+                            <li><a href= "#mainText">Add A Book</a></li>
+                            <li><a href="#current">Currently Reading</a></li>
+                            <li><a href="#alreadyRead">Already Read</a></li>
+                            <li><a href="#wishlist">Book Wishlist</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <!--Begin submit form-->
+        
+        <div class="section" id="landingLibrary">
+                <div class = "wrappersubmitform blue-grey lighten-3">                    
+                       <h5 id="mainText" class="fas fa-plus center" style="color: #eceff1"><b> ADD A <b> BOOK </b></h5>
+                        <hr class = "hr.withstyle"></hr>
+                <!--Begin user name input-->
+                 <form class="col 12" method= "POST" role="form">
+                    <div class = "row">
+                        <div class="input-field col s6">
+                          <div class="form-group">
+                            <label for=""></label>
+                            <h6 class="gray-text">Your Name</h6>
+                            <input type="text" class="form-control" id="userName" placeholder="">
+                          </div>
+                          </div>
+                    </div>
+                    <div class = "row">
+                        <div class="input-field col s6">
+                          <div class="form-group">
+                            <label for=""></label>
+                            <h6 class="gray-text">Book Title</h6>
+                            <input type="text" class="form-control" id="bookTitle" placeholder="">
+                          </div>
+                          </div>
+                    </div>
+                    <div class = "row">
+                        <div class="input-field col s6">
+                          <div class="form-group">
+                            <label for=""></label>
+                            <h6 class="gray-text">Author First Name</h6>
+                            <input type="text" class="form-control" id="authorFirst" placeholder="">
+                          </div>
+                          </div>
+                        <div class="input-field col s6">
+                          <div class="form-group">
+                            <label for=""></label>
+                            <h6 class="gray-text">Author Last Name</h6>
+                            <input type="text" class="form-control" id="authorLast" placeholder="">
+                          </div>
+                        </div>
+                    </div>
+                    <div class = "row">
+                        <div class="input-field col s6">
+                          <div class="form-group">
+                            <label for=""></label>
+                            <h6 class="gray-text">Genre (Fiction, Non-Fiction, Action/Adventure, Mystery, Thriller, Children, Romance, or Self-Help)</h6>
+                            <input type="text" class="form-control" id="genre" placeholder="">
+                          </div>
+                          </div>
+                    </div>
+                    <div class = "row">
+                        <div class="input-field col s6">
+                          <div class="form-group">
+                            <label for=""></label>
+                            <h6 class="gray-text">Number of Pages</h6>
+                            <input type="number" class="form-control" id="pagesNumber" placeholder="">
+                          </div>
+                          </div>
+                    </div>
+                    <div class = "row">
+                        <div class="input-field col s6">
+                          <div class="form-group">
+                            <label for=""></label>
+                            <h6 class="gray-text">Book Description/Comments</h6>
+                            <input type="text" class="form-control" id="book-description" placeholder="">
+                          </div>
+                          </div>
+                    </div>
+                    <div class = "row">
+                        <div class="input-field col s6">
+                          <div class="form-group">
+                            <label for=""></label>
+                            <h6 class="gray-text">Rating (out of 5. 1 = Terrible; 5 = Awesome)</h6>
+                            <input type="number" class="form-control" id="rating" placeholder="" min="1" max="5">
+                          </div>
+                          </div>
+                    </div>
+                    <div class = "row">
+                        <div class="input-field col s6">
+                          <div class="form-group">
+                            <label for=""></label>
+                            <h6 class="gray-text">Image URL</h6>
+                            <input type="text" class="form-control" id="imageURL" placeholder="">
+                          </div>
+                          </div>
+                    </div>            
+                  </form>                     
+
+<!--Begin submit buttons row-->
+<div class = "row center">
+    <button type = "button" class = "btn-large waves-effect waves-light blue-grey darken-1 fas fa-plus" id = "#submitCurrent"> Add to 'Currently Reading'</button>
+    <button type = "button" class = "btn-large waves-effect waves-light blue-grey darken-1 fas fa-plus" id = "#submitAlready"> Add to 'Already Read'</button>
+    <button type = "button" class = "btn-large waves-effect waves-light blue-grey darken-1 fas fa-plus" id = "#submitWishlist"> Add to 'Wishlist'</button>
+    
+</div>
+</div>
+
+
+        </div>
+
+<!--section divider-->
+
+<div class = "section blue-grey darken-1"></div>
+
+ <!--Begin currently reading section-->       
+                <div id="current" class="parallax-container valign-wrapper">
+                    <div class="parallax">
+                        <img src="public/images/openbooks.jpg">
+                    </div>
+                    <div class="container">
+                        <div class="row center">
+                            <div class="col s12 center gray-text">
+                                <h2><b>Currently Reading</b></h2>
+                                <br>
+                              <!--Currently reading card-->
+                        <div class = "container valign-wrapper">
+                              <div class="col s10 offset-s1">
+                                <h2 class="header"></h2>
+                                <div class="card horizontal">
+                                  <div class="card-image">
+                                    <img src="https://images-na.ssl-images-amazon.com/images/I/81qzvzCEyUL.jpg" width="100" height="190" id = "currentbookImage">
+                                  </div>
+                                  <div class="card-stacked">
+                                    <div class="card-content" id ="bookComment">
+                                      <p></p>
+                                    </div>
+                                    <div class="card-action">
+                                      <a href="#">View Your Progress</a>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>      
+                </div>
+
+
+
+<!--section divider-->
+
+<div class = "section blue-grey darken-1"></div>
+
+ <!--Already Read section-->
+
+ <div id="alreadyRead" class="parallax-container">
+  <div class="parallax">
+      <img src="public/images/alreadyread.jpg">
+  </div>
+  <div class = "container">
+      <div class="row center">
+          <div class="col s12 center gray-text">
+              <h2><b>Already Read</b></h2>
+              <br>
+            <!--Already read table-->
+            <div class = "row">
+              <table>
+                <thead>
+                  <tr>
+                      <th data-field="bookTitle">Title</th>
+                      <th data-field="bookDetails">Book Details</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                  <td>
+                    <p class="table-metric-color">Book Title</p>
+                  </td>
+                  <td>
+                    <ul class="collapsible" data-collapsible="accordion">
+                      <li>
+                        <div class="collapsible-header">Click here for details</div>
+                        <p class="collapsible-body white" id = "bookContent"><code></code></p>
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+                
+  </div>
+  </div>
+  </div>
+  </div>
+
+  <!--section divider-->
+
+<div class = "section blue-grey darken-1"></div>
+
+<!-- Wishlist section-->
+
+<div id="alreadyRead" class="parallax-container">
+  <div class="parallax">
+      <img src="public/images/wishlist2.jpg">
+  </div>
+  <div class = "container">
+      <div class="row center">
+          <div class="col s12 center gray-text">
+              <h2><b>Wishlist</b></h2>
+              <br>
+            <!--Already read table-->
+            <div class = "row">
+              <table>
+                <thead>
+                  <tr>
+                      <th data-field="bookTitle">Title</th>
+                      <th data-field="bookDetails">Book Details</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                  <td>
+                    <p class="table-metric-color">Book Title</p>
+                  </td>
+                  <td>
+                    <ul class="collapsible" data-collapsible="accordion">
+                      <li>
+                        <div class="collapsible-header">Click here for details</div>
+                        <p class="collapsible-body white" id = "wishlistContent"><code></code></p>
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+                
+  </div>
+  </div>
+  </div>
+  </div>
+
+</body>
+</html>
+
+<script>
+
+</script>
