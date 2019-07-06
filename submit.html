@@ -11,11 +11,11 @@
     <link rel="stylesheet" href="public/styles/styles.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-     <script src="js/book_service.js"></script>
-     <script src="js/index.js"></script>
+
 </head>
 
 <body>
+    <script src="public/js/index.js"></script>
     <div class="navbar-fixed">
             <nav class="blue-grey darken-1 body">
                 <div class="container">
@@ -39,13 +39,13 @@
                        <h5 id="mainText" class="fas fa-plus center" style="color: #eceff1"><b> ADD A <b> BOOK </b></h5>
                         <hr class = "hr.withstyle"></hr>
                 <!--Begin user name input-->
-                 <form class="col 12" method= "POST" role="form">
+                 <form id = "book-form" class="col 12" method= "POST" role="form">
                     <div class = "row">
                         <div class="input-field col s6">
                           <div class="form-group">
                             <label for=""></label>
                             <h6 class="gray-text">Your Name</h6>
-                            <input type="text" class="form-control" id="userName" placeholder="">
+                            <input type="text" class="form-control" id="userName" placeholder="" value = "" name="User Name">
                           </div>
                           </div>
                     </div>
@@ -54,7 +54,7 @@
                           <div class="form-group">
                             <label for=""></label>
                             <h6 class="gray-text">Book Title</h6>
-                            <input type="text" class="form-control" id="bookTitle" placeholder="">
+                            <input type="text" class="form-control" id="bookTitle" placeholder="" value = "" name="Book Title"> 
                           </div>
                           </div>
                     </div>
@@ -63,14 +63,14 @@
                           <div class="form-group">
                             <label for=""></label>
                             <h6 class="gray-text">Author First Name</h6>
-                            <input type="text" class="form-control" id="authorFirst" placeholder="">
+                            <input type="text" class="form-control" id="authorFirst" placeholder="" value = "" name="Author First Name">
                           </div>
                           </div>
                         <div class="input-field col s6">
                           <div class="form-group">
                             <label for=""></label>
                             <h6 class="gray-text">Author Last Name</h6>
-                            <input type="text" class="form-control" id="authorLast" placeholder="">
+                            <input type="text" class="form-control" id="authorLast" placeholder="" value = "" name="Author Last Name">
                           </div>
                         </div>
                     </div>
@@ -79,7 +79,7 @@
                           <div class="form-group">
                             <label for=""></label>
                             <h6 class="gray-text">Genre (Fiction, Non-Fiction, Action/Adventure, Mystery, Thriller, Children, Romance, or Self-Help)</h6>
-                            <input type="text" class="form-control" id="genre" placeholder="">
+                            <input type="text" class="form-control" id="genre" placeholder="" value = "" name="Genre">
                           </div>
                           </div>
                     </div>
@@ -88,7 +88,7 @@
                           <div class="form-group">
                             <label for=""></label>
                             <h6 class="gray-text">Number of Pages</h6>
-                            <input type="number" class="form-control" id="pagesNumber" placeholder="">
+                            <input type="number" class="form-control" id="pagesNumber" placeholder="" value = "" name="Number of Pages">
                           </div>
                           </div>
                     </div>
@@ -97,7 +97,7 @@
                           <div class="form-group">
                             <label for=""></label>
                             <h6 class="gray-text">Book Description/Comments</h6>
-                            <input type="text" class="form-control" id="book-description" placeholder="">
+                            <textarea type="text" class="form-control" id="book-description" placeholder="" value = "" name="Book Description/Comments"></textarea>
                           </div>
                           </div>
                     </div>
@@ -106,7 +106,7 @@
                           <div class="form-group">
                             <label for=""></label>
                             <h6 class="gray-text">Rating (out of 5. 1 = Terrible; 5 = Awesome)</h6>
-                            <input type="number" class="form-control" id="rating" placeholder="" min="1" max="5">
+                            <input type="number" class="form-control" id="rating" placeholder="" min="1" max="5" value = "" name="Rating">
                           </div>
                           </div>
                     </div>
@@ -115,7 +115,7 @@
                           <div class="form-group">
                             <label for=""></label>
                             <h6 class="gray-text">Image URL</h6>
-                            <input type="text" class="form-control" id="imageURL" placeholder="">
+                            <input type="text" class="form-control" id="imageURL" placeholder="" value = "" name="Image URL">
                           </div>
                           </div>
                     </div>            
@@ -123,9 +123,9 @@
 
 <!--Begin submit buttons row-->
 <div class = "row center">
-    <button type = "button" class = "btn-large waves-effect waves-light blue-grey darken-1 fas fa-plus" id = "#submitCurrent"> Add to 'Currently Reading'</button>
-    <button type = "button" class = "btn-large waves-effect waves-light blue-grey darken-1 fas fa-plus" id = "#submitAlready"> Add to 'Already Read'</button>
-    <button type = "button" class = "btn-large waves-effect waves-light blue-grey darken-1 fas fa-plus" id = "#submitWishlist"> Add to 'Wishlist'</button>
+    <button type = "submit" class = "btn-large waves-effect waves-light blue-grey darken-1 fas fa-plus" id = "submitCurrent"> Add to 'Currently Reading'</button>
+    <button id = "submitAlready" type = "submit" class = "btn-large waves-effect waves-light blue-grey darken-1 fas fa-plus" >Add to 'Already Read'</button>
+    <button type = "submit" class = "btn-large waves-effect waves-light blue-grey darken-1 fas fa-plus" id = "submitWishlist"> Add to 'Wishlist'</button>
     
 </div>
 </div>
@@ -153,10 +153,10 @@
                                 <h2 class="header"></h2>
                                 <div class="card horizontal">
                                   <div class="card-image">
-                                    <img src="" width="100" height="190" id = "currentbookImage">
+                                    <img src="https://images-na.ssl-images-amazon.com/images/I/81qzvzCEyUL.jpg" width="100" height="190" id = "currentbookImage">
                                   </div>
                                   <div class="card-stacked">
-                                    <div class="card-content left-align" id ="currentBookDetails">
+                                    <div class="card-content" id ="bookComment">
                                       <p></p>
                                     </div>
                                     <div class="card-action">
@@ -216,9 +216,6 @@
                             
                     </tbody>  
                 </table>
-                <div class = "row center">
-                  <button  type = "submit" class = "btn-large waves-effect waves-light blue-grey darken-1 fas fa-plus" id = "addCurrent"><a href="#book-form" class="black-text"> Add Another Book</a></button>
-                  </div>
   </div>
   </div>
   </div>
@@ -230,48 +227,41 @@
 
 <!-- Wishlist section-->
 
-<div id="wishlist" class="parallax-container">
+<div id="alreadyRead" class="parallax-container">
   <div class="parallax">
       <img src="public/images/wishlist2.jpg">
   </div>
   <div class = "container">
-    
       <div class="row center">
           <div class="col s12 center gray-text">
               <h2><b>Wishlist</b></h2>
               <br>
-            <!--Wishlist table-->
-            <div class = "row center">
-                <table id="alreadyReadTable">  
-                    <tr  data-toggle="toggle">  
-                        <td >  
-                                  </span>  
-                            <p id="Technology" class="blue-grey darken-1">  
-                                <b>  
-                                    <span class="plusminusTechnology">+</span>    
-                                    <span lang="EN-IN" id="bookname"><h6></h6></span>  
-                                </b>  
-                            </p>  
-                        </td>  
-                        <td ></td>  
-                        <td ></td>  
-                    </tr>  
-                    <tbody class="hideTr  blue-grey lighten-5">  
-                        <tr >  
-                            <td id="authfirst"></td>  
-                            <td id="authlast"></td>  
-                            <td id="genredetail"></td>  
-                            <td id="numberofpages"></td>
-                            <tr id="bookdesc"></tr>
-                            <tr id="ratingdetail"></tr>
-
-                            
-                    </tbody>  
-                </table>
-                <div class = "row center">
-                  <button  type = "submit" class = "btn-large waves-effect waves-light blue-grey darken-1 fas fa-plus" id = "addCurrent"><a href="#book-form" class="black-text"> Add Another Book</a></button>
-                  </div>
-  </div>
+            <!--Already read table-->
+            <div class = "row">
+              <table>
+                <thead>
+                  <tr>
+                      <th data-field="bookTitle">Title</th>
+                      <th data-field="bookDetails">Book Details</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                  <td>
+                    <p class="table-metric-color">Book Title</p>
+                  </td>
+                  <td>
+                    <ul class="collapsible" data-collapsible="accordion">
+                      <li>
+                        <div class="collapsible-header">Click here for details</div>
+                        <p class="collapsible-body white" id = "wishlistContent"><code></code></p>
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
                 
   </div>
   </div>
@@ -282,36 +272,23 @@
 </html>
 
 <script>
-
-      var newBook = {
-      bookTitle: bookTitle,
-    authorFirstName: authorFirstName,
-    authorLastName: authorLastName,
-    genre: genre,
-    pagesNumber: pagesNumber,
-    comments: comments,
-    rating: rating,
-    imageURL: imageURL
-      }
-
-      //if (!(newBook.bookTitle && newBook.authorFirstName && newBook.authorLastName && newBook.genre && newBook.genre && newBook.pagesNumber && newBook.comments && newBook.rating &&
-   // newBook.imageURL)) {
-   // alert("You must enter your name, book title, author first name, author last name, genre, numbe of pages, comments, rating and image URL!");
-   // return;
-  //}
-    $("#bookname").append("<tr><td>Book Title: </td><td>" + newBook.bookTitle);
-    $("#authfirst").append("<tr><td>Author First Name: </td><td>" + newBook.authorFirstName);
-    $("#authlast").append("<tr><td>Author Last Name: </td><td>" + newBook.authorLastName);
-    $("#genredetail").append("<tr><td>Genre: </td><td>" + newBook.genre);
-    $("#numberofpages").append("<tr><td>Number of Pages: </td><td>" + newBook.pagesNumber);
-    $("#bookdesc").append("<tr><td>Comments: </td><td>" + newBook.comments);
-    $("#ratingdetail").append("<tr><td>Rating: </td><td>" + newBook.rating + "</td></tr>");
-    $("#book-form").each(function(){
-    this.reset();
+  $(document).ready(function() {
+    debugger;  
+        $('.hideTr').slideUp(600);  
+     $('[data-toggle="toggle"]').click(function () {  
+        if ($(this).parents().next(".hideTr").is(':visible')) {  
+            $(this).parents().next('.hideTr').slideUp(600);  
+            $(".plusminus" + $(this).children().children().attr("id")).text('+');  
+           //$(this).css('background-color', 'white');  
+            }  
+        else {  
+            $(this).parents().next('.hideTr').slideDown(600);  
+            $(".plusminus" + $(this).children().children().attr("id")).text('- ');  
+           //$(this).css('background-color', '#c1eaff ');    
+        }  
+    });  
     
-});
-    })
-    $("#submitCurrent").click(function(){
+    $("#submitAlready").click(function(){
       var userName = $("#userName").val().trim();
 var bookTitle = $("#bookTitle").val().trim();
 var authorFirstName = $("#authorFirst").val().trim();
@@ -338,13 +315,25 @@ var submitBtnWishlist = $("#submitWishlist");
     rating: rating,
     imageURL: imageURL
       }
-      $("#currentBookDetails").append("<p>Book Title: " + newBook.bookTitle + "<p> Author Name: " + newBook.authorFirstName + " " + newBook.authorLastName +
-        "<p>Genre: " + newBook.genre + "No. of Pages: " + newBook.pagesNumber + "<p>Comments: " + newBook.comments + "<p>Rating: " + newBook.rating);
-          $("#book-form").each(function(){
+
+      //if (!(newBook.bookTitle && newBook.authorFirstName && newBook.authorLastName && newBook.genre && newBook.genre && newBook.pagesNumber && newBook.comments && newBook.rating &&
+   // newBook.imageURL)) {
+   // alert("You must enter your name, book title, author first name, author last name, genre, numbe of pages, comments, rating and image URL!");
+   // return;
+  //}
+    $("#bookname").append("<tr><td>Book Title: </td><td>" + newBook.bookTitle);
+    $("#authfirst").append("<tr><td>Author First Name: </td><td>" + newBook.authorFirstName);
+    $("#authlast").append("<tr><td>Author Last Name: </td><td>" + newBook.authorLastName);
+    $("#genredetail").append("<tr><td>Genre: </td><td>" + newBook.genre);
+    $("#numberofpages").append("<tr><td>Number of Pages: </td><td>" + newBook.pagesNumber);
+    $("#bookdesc").append("<tr><td>Comments: </td><td>" + newBook.comments);
+    $("#ratingdetail").append("<tr><td>Rating: </td><td>" + newBook.rating + "</td></tr>");
+    $("#book-form").each(function(){
     this.reset();
-    
+
 });
-        });
+    })
+    
   });
   
 </script>
