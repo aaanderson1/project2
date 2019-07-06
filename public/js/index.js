@@ -49,6 +49,14 @@ var refreshbooks = function() {
 var handleFormSubmit = function() {
   
 
+<<<<<<< HEAD
+  //API.saveBook(book).then(function() {
+    //refreshbooks();
+  //});
+  bookService.createBook(book).then(function() {
+    refreshbooks();
+  });
+=======
 
   API.saveBook(book).then(function() {
     refreshbooks();
@@ -58,6 +66,7 @@ var handleFormSubmit = function() {
     refreshbooks();
   });
 
+>>>>>>> 29f84cd3a1a5daa2764f11ca6d598679dad5eddc
 
  
 };
