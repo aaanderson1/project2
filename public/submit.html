@@ -147,12 +147,21 @@
                                   <div class="card-image">
                                     <img src="" width="100" height="190" id = "currentbookImage">
                                   </div>
-                                  <div class="card-stacked">
-                                    <div class="card-content left-align" id ="currentBookDetails">
-                                      <p></p>
+                                  <div class="card-stacked blue-grey lighten-3">
+                                    <!--<div class="card-content left-align" id ="currentBookDetails">-->
+                                        <ul class="bookRowCurrent left-align">
+                                            
+                                            <ul id="booknameCurrent"> Title: </ul>
+                                            <ul id="authfirstCurrent"> Author First Name: </ul>
+                                            <ul id="authlastCurrent"> Author Last Name: </ul>
+                                            <ul id="genredetailCurrent"> Genre: </ul>
+                                            <ul id="numberofpagesCurrent"> No. of Pages: </ul>
+                                            <ul id="bookdescCurrent"> Comments/Description: </ul>
+                                            <ul id="ratingdetailCurrent"> Rating: </ul>
+                                        </ul>
                                     </div>
                                     <div class="card-action">
-                                      <button id="movetoAlreadyRead">Move to 'Already Read'</button>
+                                      <button id="movetoAlreadyRead" class= "btn-medium waves-effect waves-light blue-grey darken-1 white-text ">Move to 'Already Read'</button>
                                     </div>
                                   </div>
                                 </div>
@@ -345,17 +354,43 @@ var submitBtnWishlist = $("#submitWishlist");
     rating: rating,
     
       }
-    $("#currentBookDetails").append("<p>Title: " + newBook.bookTitle + "<p>Author: " + newBook.authorFirstName + " " + newBook.authorLastName +
-        "<p>Genre: " + newBook.genre + "<p>Number of Pages: " + newBook.pagesNumber + "<p>Comments/Description: " + newBook.comments +
-          "<p>Rating: " + newBook.rating);
+    //$("#currentBookDetails").append("<p>Title: " + newBook.bookTitle + "<p>Author: " + newBook.authorFirstName + " " + newBook.authorLastName +
+     //   "<p>Genre: " + newBook.genre + "<p>Number of Pages: " + newBook.pagesNumber + "<p>Comments/Description: " + newBook.comments +
+     //     "<p>Rating: " + newBook.rating);
+        $("#booknameCurrent").append(newBook.bookTitle);
+      $("#authfirstCurrent").append(newBook.authorFirstName);
+      $("#authlastCurrent").append(newBook.authorLastName);
+      $("#genredetailCurrent").append(newBook.genre);
+      $("#ratingdetailCurrent").append(newBook.rating);
+      $("#numberofpagesCurrent").append(newBook.pagesNumber);
+      $("#bookdescCurrent").append(newBook.comments);
       $("#book-form").each(function(){
     this.reset();
     }); 
     var moveCurrent = newBook
     console.log(moveCurrent);
 
-  });
+ 
 
+  //move to already read from currently reading
+  $("#movetoAlreadyRead").click(function(){
+    $("#bookname").append(newBook.bookTitle);
+      $("#authfirst").append(newBook.authorFirstName);
+      $("#authlast").append(newBook.authorLastName);
+      $("#genredetail").append(newBook.genre);
+      $("#ratingdetail").append(newBook.rating);
+      $("#numberofpages").append(newBook.pagesNumber);
+      $("#bookdesc").append(newBook.comments)
+      $("#booknameCurrent").text("Title: ");
+      $("#authfirstCurrent").text("Author First Name: ");
+      $("#authlastCurrent").text("Author Last Name: ");
+      $("#genredetailCurrent").text("Genre: ");
+      $("#ratingdetailCurrent").text("Rating: ");
+      $("#numberofpagesCurrent").text("No. of Pages: ");
+      $("#bookdescCurrent").text("Comments/Description: ");
+      $("#ratingdetailCurrent").text("Rating: ");
+});
+});
 //original submit for Already Read
 $("#submitAlready").click(function(){
       var userName = $("#userName").val().trim();
