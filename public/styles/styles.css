@@ -336,13 +336,12 @@ div.dt-button-info {
 }
 
 .parallax-container {
-  height: 1500px;
-}
-
-.parallax-container-current {
   height: 500px;
 }
 
-.parallax{
-  position:static;
+.parallax-container-tall {
+  height: 1000px;
 }
+
+
+

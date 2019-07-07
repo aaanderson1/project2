@@ -1,5 +1,4 @@
 $(document).ready(function () {
-    $(".parallax").parallax();
     // Get references to page elements
     // eslint-disable-next-line no-unused-vars
 
