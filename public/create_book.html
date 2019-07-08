@@ -42,9 +42,25 @@
                     <input type="text" class="form-control" id="rating" placeholder="Rating">
                 </div>
             </div>
-            <button type="button" class="btn btn-primary"
-                id="createnewbutton">Create New</button>
+            <button type="button" class="btn btn-primary" id="createnewbutton">Create New</button>
         </div>
+    </div>
+    <div>
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Autho</th>
+                    <th scope="col">Genre</th>
+                    <th scope="col">Pages</th>
+                    <th scope="col">Comments</th>
+                    <th scope="col">Rating</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+            </tbody>
+        </table>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="js/book_service.js"></script>
@@ -55,6 +71,23 @@
                 window.location = window.location.origin + "/login.html";
                 return;
             }
+
+            bookService.getBooks().then((books) => {
+                for (const book of books) {
+                    $("#tableBody").append(`
+                <tr>
+                    <th scope="row">${book.id}</th>
+                    <td>${book.title}</td>
+                    <td>${book.author}</td>
+                    <td>${book.genre}</td>
+                    <td>${book.pages}</td>
+                    <td>${book.comments}</td>
+                    <td>${book.rating}</td>
+                </tr>
+                    `);
+                }
+            });
+
             $("#createnewbutton").click(() => {
                 const data = {
                     title: $("#title").val(),
@@ -91,7 +124,6 @@
                 bookService
                     .createBook(data)
                     .then(() => {
-                        alert("Created Book!");
                         window.location.reload();
                     }, (err) => {
                         alert(`Failed with error: ${err}`);

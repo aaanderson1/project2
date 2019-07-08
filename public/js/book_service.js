@@ -20,7 +20,7 @@ class BookService {
     }
     saveUser() {
         const newDate = new Date();
-        newDate.setDate(newDate.getDate() + 5);
+        newDate.setDate(newDate.getDate() + 1);
         window.localStorage.setItem("project2_user_id_info", JSON.stringify({
             userId: this.userId,
             dateTimeString: newDate.toISOString()
