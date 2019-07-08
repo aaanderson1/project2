@@ -228,9 +228,7 @@ class BookService {
                     },
                     url: "api/bookmarks",
                     type: "DELETE",
-                    data: JSON.stringify({
-                        id: id
-                    })
+                    data: JSON.stringify(bookmarkData)
                 })
                 .then(returnData => {
                     if (returnData.error) {
@@ -326,13 +324,16 @@ class BookService {
                 });
             }
 
-            if (!alreadyReadData.id) {
+            if (!id) {
                 reject({
                     error: "Please provide id for alreadyRead!"
                 });
             }
 
-            alreadyReadData.userId = this.userId;
+            const alreadyReadData = {
+                userId: this.userId,
+                id: id,
+            };
 
             $.ajax({
                     headers: {
@@ -340,9 +341,7 @@ class BookService {
                     },
                     url: "api/already-read",
                     type: "DELETE",
-                    data: JSON.stringify({
-                        id: id
-                    })
+                    data: JSON.stringify(alreadyReadData)
                 })
                 .then(returnData => {
                     if (returnData.error) {
@@ -438,13 +437,16 @@ class BookService {
                 });
             }
 
-            if (!currentlyReadingData.id) {
+            if (!id) {
                 reject({
                     error: "Please provide id for currentlyReading!"
                 });
             }
 
-            currentlyReadingData.userId = this.userId;
+            const currentlyReadingData = {
+                userId: this.userId,
+                id: id,
+            }
 
             $.ajax({
                     headers: {
@@ -452,9 +454,7 @@ class BookService {
                     },
                     url: "api/currently-reading",
                     type: "DELETE",
-                    data: JSON.stringify({
-                        id: id
-                    })
+                    data: JSON.stringify(currentlyReadingData)
                 })
                 .then(returnData => {
                     if (returnData.error) {
@@ -556,13 +556,16 @@ class BookService {
                 });
             }
 
-            if (!wishlistData.id) {
+            if (!id) {
                 reject({
                     error: "Please provide id for wishlist!"
                 });
             }
 
-            wishlistData.userId = this.userId;
+            const wishlistData = {
+                userId: this.userId,
+                id: id,
+            };
 
             $.ajax({
                     headers: {
@@ -570,9 +573,7 @@ class BookService {
                     },
                     url: "api/wishlist",
                     type: "DELETE",
-                    data: JSON.stringify({
-                        id: id
-                    })
+                    data: JSON.stringify(wishlistData)
                 })
                 .then(returnData => {
                     if (returnData.error) {
@@ -581,6 +582,106 @@ class BookService {
                     }
                     resolve(returnData);
                 });
+        });
+
+        return promise;
+    }
+
+    moveWishlistToCurrentlyReading(wishlist) {
+        const promise = new Promise((resolve, reject) => {
+            if (!this.loggedIn()) {
+                reject({
+                    error: "Please login!"
+                });
+            }
+
+            if (!wishlist) {
+                reject({
+                    error: "Please provide wishlist!"
+                });
+            }
+
+            const currentlyReadingData = {
+                bookId: wishlist.book.id,
+                comment: wishlist.comment,
+            };
+
+            this.deleteWishlist(wishlist.id).then(() => {
+                this.createCurrentlyReading(currentlyReadingData).then(() => {
+                    resolve();
+                }, (err) => {
+                    reject(err);
+                });
+            }, (err) => {
+                reject(err);
+            });
+        });
+
+        return promise;
+    }
+
+    moveCurrentlyReadingToAlreadyRead(currentlyReading) {
+        const promise = new Promise((resolve, reject) => {
+            if (!this.loggedIn()) {
+                reject({
+                    error: "Please login!"
+                });
+            }
+
+            if (!currentlyReading) {
+                reject({
+                    error: "Please provide currentlyReading!"
+                });
+            }
+
+            const alreadyReadData = {
+                bookId: currentlyReading.book.id,
+                comment: currentlyReading.comment,
+            };
+
+            this.deleteCurrentlyReading(currentlyReading.id).then(() => {
+                this.createAlreadyRead(alreadyReadData).then(() => {
+                    resolve();
+                }, (err) => {
+                    reject(err);
+                });
+            }, (err) => {
+                reject(err);
+            });
+        });
+
+        return promise;
+    }
+
+    moveAlreadyReadToWishlist(alreadyRead) {
+        const promise = new Promise((resolve, reject) => {
+            if (!this.loggedIn()) {
+                reject({
+                    error: "Please login!"
+                });
+            }
+
+            if (!alreadyRead) {
+                reject({
+                    error: "Please provide alreadyRead!"
+                });
+            }
+
+            const wishlistData = {
+                bookId: alreadyRead.book.id,
+                comment: alreadyRead.comment,
+                order: 1,
+            };
+
+            this.deleteAlreadyRead(alreadyRead.id).then(() => {
+                this.createWishlist(wishlistData).then(() => {
+                    resolve();
+                }, (err) => {
+                    reject(err);
+                });
+            }, (err) => {
+                reject(err);
+            });
         });
 
         return promise;

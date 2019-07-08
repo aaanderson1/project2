@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Book Status</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <script src="js/book_service.js"></script>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <div class="jumbotron jumbotron-fluid">
+                    <div class="container">
+                        <h1 class="display-6">Wishlist</h1>
+
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#wishlistModal">
+                            Create New
+                        </button>
+                    </div>
+                </div>
+                <div id="wishlist"></div>
+            </div>
+            <div class="col-sm">
+                <div class="jumbotron jumbotron-fluid">
+                    <div class="container">
+                        <h1 class="display-6">Currently Reading</h1>
+
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#currentModal">
+                            Create New
+                        </button>
+                    </div>
+                </div>
+                <div id="currentlyReading"></div>
+            </div>
+            <div class="col-sm">
+                <div class="jumbotron jumbotron-fluid">
+                    <div class="container">
+                        <h1 class="display-6">Already Read</h1>
+
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#readModal">
+                            Create New
+                        </button>
+                    </div>
+                </div>
+                <div id="alreadyRead"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="wishlistModal" tabindex="-1" role="dialog" aria-labelledby="wishlistModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Create New Wishlist</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        <select class="custom-select" id="wishlistSelectionGroup">
+                            <option selected value="">Choose a book</option>
+                        </select>
+                    </div>
+                    <div>
+                        <input type="text" class="form-control" id="wishlistComment" placeholder="Comment">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="createNewWishlist()">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="currentModal" tabindex="-1" role="dialog" aria-labelledby="currentModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Create New Currently Reading</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        <select class="custom-select" id="currentSelectionGroup">
+                            <option selected value="">Choose a book</option>
+                        </select>
+                    </div>
+                    <div>
+                        <input type="text" class="form-control" id="currentComment" placeholder="Comment">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="createNewCurrent()">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="readModal" tabindex="-1" role="dialog" aria-labelledby="readModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Create New Already Read</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        <select class="custom-select" id="readSelectionGroup">
+                            <option selected value="">Choose a book</option>
+                        </select>
+                    </div>
+                    <div>
+                        <input type="text" class="form-control" id="readComment" placeholder="Comment">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="createNewRead()">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        const fillInWishlistCard = (data, buttonId) => {
+            const html = `<div class="card" style="width: 20rem;">
+    <div class="card-body">
+        <h5 class="card-title">Title: ${data.book.title}</h5>
+        <h6 class="card-title">Author: ${data.book.author}</h6>
+        <p class="card-text">Comment: ${data.book.comment}</p>
+        <button type="button" class="btn btn-primary" onclick="clickWishlist(${buttonId})">Move to Currently Reading</button>
+        <button type="button" class="btn btn-danger" onclick="clickWishlistDelete(${buttonId})">X</button>
+    </div>
+</div>`;
+            return html;
+        };
+
+        const fillInCurrentCard = (data, buttonId) => {
+            const html = `<div class="card" style="width: 20rem;">
+    <div class="card-body">
+        <h5 class="card-title">${data.book.title}</h5>
+        <h6 class="card-title">Author: ${data.book.author}</h6>
+        <p class="card-text">Comment: ${data.book.comment}</p>
+        <button type="button" class="btn btn-primary" onclick="clickCurrentlyReading(${buttonId})">Move to Already Read</button>
+        <button type="button" class="btn btn-danger" onclick="clickCurrentlyReadingDelete(${buttonId})">X</button>
+    </div>
+</div>`;
+            return html;
+        };
+
+        const fillInReadCard = (data, buttonId) => {
+            const html = `<div class="card" style="width: 20rem;">
+    <div class="card-body">
+        <h5 class="card-title">${data.book.title}</h5>
+        <h6 class="card-title">Author: ${data.book.author}</h6>
+        <p class="card-text">Comment: ${data.book.comment}</p>
+        <button type="button" class="btn btn-primary" onclick="clickAlreadyRead(${buttonId})">Move to Wishlist</button>
+        <button type="button" class="btn btn-danger" onclick="clickAlreadyReadDelete(${buttonId})">X</button>
+    </div>
+</div>`;
+            return html;
+        };
+
+        const bookService = new BookService();
+
+        let wishlists;
+        let currentlyReadings;
+        let alreadyReads;
+
+        const clickWishlist = (id) => {
+            const wishlist = wishlists.find((item) => item.id === id);
+            bookService.moveWishlistToCurrentlyReading(wishlist).then(() => {
+                window.location.reload();
+            }, (err) => {
+                alert(err);
+            })
+        };
+
+        const clickCurrentlyReading = (id) => {
+            const currentlyReading = currentlyReadings.find((item) => item.id === id);
+            bookService.moveCurrentlyReadingToAlreadyRead(currentlyReading).then(() => {
+                window.location.reload();
+            }, (err) => {
+                alert(err);
+            })
+        };
+
+        const clickAlreadyRead = (id) => {
+            const alreadyRead = alreadyReads.find((item) => item.id === id);
+            bookService.moveAlreadyReadToWishlist(alreadyRead).then(() => {
+                window.location.reload();
+            }, (err) => {
+                alert(err);
+            })
+        };
+
+        const clickWishlistDelete = (id) => {
+            bookService.deleteWishlist(id).then(() => {
+                window.location.reload();
+            }, (err) => {
+                alert(err);
+            })
+        };
+
+        const clickCurrentlyReadingDelete = (id) => {
+            bookService.deleteCurrentlyReading(id).then(() => {
+                window.location.reload();
+            }, (err) => {
+                alert(err);
+            })
+        };
+
+        const clickAlreadyReadDelete = (id) => {
+            bookService.deleteAlreadyRead(id).then(() => {
+                window.location.reload();
+            }, (err) => {
+                alert(err);
+            })
+        };
+
+        const createNewWishlist = () => {
+            const bookId = $("#wishlistSelectionGroup").children("option:selected").val();
+            if (!bookId) {
+                alert("Please select a book");
+                return;
+            }
+            const comment = $("#wishlistComment").val();
+            if (!comment) {
+                alert("Please add comment");
+                return;
+            }
+            const wishlistData = {
+                bookId,
+                comment,
+                order: 1,
+            };
+            bookService.createWishlist(wishlistData).then(() => {
+                window.location.reload();
+            }, (err) => {
+                alert(err);
+                window.location.reload();
+            })
+        };
+
+        const createNewCurrent = () => {
+            const bookId = $("#currentSelectionGroup").children("option:selected").val();
+            if (!bookId) {
+                alert("Please select a book");
+                return;
+            }
+            const comment = $("#currentComment").val();
+            if (!comment) {
+                alert("Please add comment");
+                return;
+            }
+            const currentData = {
+                bookId,
+                comment,
+            };
+            bookService.createCurrentlyReading(currentData).then(() => {
+                window.location.reload();
+            }, (err) => {
+                alert(err);
+                window.location.reload();
+            })
+        };
+
+        const createNewRead = () => {
+            const bookId = $("#readSelectionGroup").children("option:selected").val();
+            if (!bookId) {
+                alert("Please select a book");
+                return;
+            }
+            const comment = $("#readComment").val();
+            if (!comment) {
+                alert("Please add comment");
+                return;
+            }
+            const readData = {
+                bookId,
+                comment,
+                order: 1,
+            };
+            bookService.createAlreadyRead(readData).then(() => {
+                window.location.reload();
+            }, (err) => {
+                alert(err);
+                window.location.reload();
+            })
+        };
+
+        (() => {
+            if (!bookService.loggedIn()) {
+                window.location = window.location.origin + "/login.html";
+                return;
+            }
+
+            bookService.getWishlist().then((data) => {
+                wishlists = data;
+                for (const wishlist of wishlists) {
+                    $("#wishlist").append(fillInWishlistCard({
+                        book: {
+                            url: wishlist.book.url,
+                            title: wishlist.book.title,
+                            author: wishlist.book.author,
+                            comment: wishlist.comment,
+                        }
+                    }, wishlist.id));
+                }
+
+                bookService.getCurrentlyReading().then((data) => {
+                    currentlyReadings = data;
+                    for (const currentlyReading of currentlyReadings) {
+                        $("#currentlyReading").append(fillInCurrentCard({
+                            book: {
+                                url: currentlyReading.book.url,
+                                title: currentlyReading.book.title,
+                                author: currentlyReading.book.author,
+                                comment: currentlyReading.comment,
+                            }
+                        }, currentlyReading.id));
+                    }
+
+                    bookService.getAlreadyRead().then((data) => {
+                        alreadyReads = data;
+                        for (const alreadyRead of alreadyReads) {
+                            $("#alreadyRead").append(fillInReadCard({
+                                book: {
+                                    url: alreadyRead.book.url,
+                                    title: alreadyRead.book.title,
+                                    author: alreadyRead.book.author,
+                                    comment: alreadyRead.comment,
+                                }
+                            }, alreadyRead.id));
+                        }
+                        
+                        bookService.getBooks().then((books) => {
+                            for (const book of books) {
+                                let found = wishlists.find((item) => item.book.id === book.id);
+                                if (found) {
+                                    continue;
+                                }
+                                found = currentlyReadings.find((item) => item.book.id === book.id);
+                                if (found) {
+                                    continue;
+                                }
+                                found = alreadyReads.find((item) => item.book.id === book.id);
+                                if (found) {
+                                    continue;
+                                }
+                                $("#wishlistSelectionGroup").append($('<option>', {value: book.id, text: book.title}));
+                                $("#currentSelectionGroup").append($('<option>', {value: book.id, text: book.title}));
+                                $("#readSelectionGroup").append($('<option>', {value: book.id, text: book.title}));
+                            }
+                        });
+                    });
+                });
+            });
+
+
+
+            $("#createnewbutton").click(() => {
+                const data = {
+                    title: $("#title").val(),
+                    author: $("#authorFirstName").val() + " " + $("#authorLastName").val(),
+                    genre: $("#genre").val(),
+                    pages: $("#numberOfPages").val(),
+                    comments: $("#comments").val(),
+                    rating: $("#rating").val(),
+                };
+                if (!data.title) {
+                    alert("title not provided");
+                    return;
+                }
+                if (!data.author) {
+                    alert("author not provided");
+                    return;
+                }
+                if (!data.genre) {
+                    alert("genre not provided");
+                    return;
+                }
+                if (!data.pages) {
+                    alert("pages not provided");
+                    return;
+                }
+                if (!data.comments) {
+                    alert("comments not provided");
+                    return;
+                }
+                if (!data.rating || data.rating < 1 || data.rating > 5) {
+                    alert("rating not provided or is not from 1 to 5");
+                    return;
+                }
+                bookService
+                    .createBook(data)
+                    .then(() => {
+                        alert("Created Book!");
+                        window.location.reload();
+                    }, (err) => {
+                        alert(`Failed with error: ${err}`);
+                    });
+            });
+        })();
+    </script>
+</body>
+
+</html>
