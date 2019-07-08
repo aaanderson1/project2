@@ -14,43 +14,99 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/styles.css">
 </head>
 
 <body>
     <script src="js/book_service.js"></script>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm">
-                <div class="jumbotron jumbotron-fluid">
-                    <div class="container">
-                        <h1 class="display-6">Wishlist</h1>
+    <script src="js/parallax.js"></script>
+    <!--Navbar-->
+    <div class="navbar-fixed">
+            <nav class="blue-grey darken-1 body">
+                <div class="container">
+                    <div class="nav-wrapper header">
+                        <a href="#" class="brand-logo"></a>
+                        <ul class="right hide-on-med-and-down" id="navList">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href= "create_book.html">Create a Book</a></li>
+                            <li><a href="book_status.html">Go to Your Library</a></li>
+                            <li><a href="#">Your Bookmarks</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    <!--Wishlist section-->
+    <div class="parallax-container">
+            <div class="parallax">
+                <img src="images/openbooks.jpg" height="700px">
+            </div>
+        <div class="container">
+        <br>
 
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#wishlistModal">
-                            Create New
+
+        <div class="row">
+                    <div class="col s12 m6 center">
+                    <div class="card blue-grey darken-1">
+                    <div class="container">
+                        <h1 class="white-text fas fa-heart"> Wishlist</h1>
+                        <br><p class = "black-text">(Choose from your collection of books to add to your wishlist!)</p>
+                        <button type="button" class="btn-large waves-effect waves-light blue-grey lighten-1 fas fa-plus" data-toggle="modal" data-target="#wishlistModal">
+                            Add Book
                         </button>
+
                     </div>
                 </div>
                 <div id="wishlist"></div>
             </div>
-            <div class="col-sm">
-                <div class="jumbotron jumbotron-fluid">
+            </div>
+        </div>
+    </div>
+    <!--section divider-->
+    <div class = "section blue-grey darken-1"></div>
+    <!--currently reading section-->
+    <div class="parallax-container">
+        <div class="parallax">
+                <img src="images/bookbackground.jpg">
+        </div>
+        <div class="container">
+            <br>
+    <div class="row">
+            <div class="col s12 m6 center">
+                    <div class="card blue-grey darken-1">
                     <div class="container">
-                        <h1 class="display-6">Currently Reading</h1>
-
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#currentModal">
-                            Create New
+                            <h1 class="white-text fa fa-bookmark"> Currently Reading</h1>
+                            <br><p class = "black-text">(Choose from your collection of books to add to your "Currently Reading" list!)</p>
+                        <button type="button" class="btn-large waves-effect waves-light blue-grey lighten-1 fas fa-plus" data-toggle="modal" data-target="#currentModal">
+                            Add Book
                         </button>
                     </div>
                 </div>
                 <div id="currentlyReading"></div>
             </div>
-            <div class="col-sm">
-                <div class="jumbotron jumbotron-fluid">
+    </div>
+</div>
+</div>
+<!--section divider-->
+<div class = "section blue-grey darken-1"></div>
+<!--Already read section-->
+<div class="parallax-container">
+        <div class="parallax">
+                <img src="images/alreadyread2.jpg">
+        </div>
+        <div class="container">
+            <br>
+    <div class="row">
+            <div class="col s12 m6 center">
+                    <div class="card blue-grey darken-1">
                     <div class="container">
-                        <h1 class="display-6">Already Read</h1>
-
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#readModal">
-                            Create New
+                            <h1 class="white-text fa fa-book"> Already Read</h1>
+                            <br><p class = "black-text">(Choose from your collection of books to add to your "Already Read" list!)</p>
+                        <button type="button" class="btn-large waves-effect waves-light blue-grey lighten-1 fas fa-plus" data-toggle="modal" data-target="#readModal">
+                            Add Book
                         </button>
                     </div>
                 </div>
@@ -58,13 +114,14 @@
             </div>
         </div>
     </div>
+ </div>  
     <!-- Modal -->
     <div class="modal fade" id="wishlistModal" tabindex="-1" role="dialog" aria-labelledby="wishlistModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Create New Wishlist</h5>
+                    <h5 class="modal-title">Add to Your Wishlist</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -140,8 +197,12 @@
             </div>
         </div>
     </div>
+
+              
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
+    
+    
         const fillInWishlistCard = (data, buttonId) => {
             const html = `<div class="card" style="width: 20rem;">
     <div class="card-body">
