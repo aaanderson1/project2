@@ -691,7 +691,6 @@ class BookService {
 // for testing
 /*
 var bookService = new BookService();
-
 if (!bookService.loggedIn()) {
     bookService.login({
         username: "allison",
@@ -704,21 +703,18 @@ if (!bookService.loggedIn()) {
         // bookService.createBookmark({bookId: 1, page: Math.floor(Math.random() * 1000), comment: "Heyo!"}).then(response => {
         //     console.log(response);
         // });
-
         bookService.getAlreadyRead().then(response => {
             console.log(response);
         });
         // bookService.createAlreadyRead({bookId: 1, comment: "Heyo Already Read!"}).then(response => {
         //     console.log(response);
         // });
-
         bookService.getCurrentlyReading().then(response => {
             console.log(response);
         });
         // bookService.createCurrentlyReading({bookId: 1, comment: "Heyo Currently Reading!"}).then(response => {
         //     console.log(response);
         // });
-
         bookService.getWishlist().then(response => {
             console.log(response);
         });

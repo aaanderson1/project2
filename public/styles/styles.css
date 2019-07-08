@@ -13,6 +13,17 @@
  opacity: 0.9;
 }
 
+#landingCreate{
+  height: 130vh;
+  background-image: url("https://i.pinimg.com/originals/b4/9d/4a/b49d4a3318145fd126add231463e31aa.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  z-index: -1;
+ opacity: 0.9;
+}
+
 #landingIndex{
   height: 100vh;
   background-image: url("https://i.pinimg.com/originals/b4/9d/4a/b49d4a3318145fd126add231463e31aa.png");
@@ -24,13 +35,26 @@
  opacity: 0.9;
 }
 
-.h1 {
-  color: 
+.h1subtitle {
+  color: #b0bec5;
 }
 
 .wrappersubmitform {
   width: 960px;
   height: 1300px;
+  background-color: #ffffff;
+  margin: 0 auto;
+  padding: 20px;
+  clear: both;
+  overflow: hidden;
+  border-style: solid 50px;
+  border-color: #dddddd;
+
+}
+
+.wrapperbookmark {
+  width: 800px;
+  height: 500px;
   background-color: #ffffff;
   margin: 0 auto;
   padding: 20px;
@@ -335,13 +359,18 @@ div.dt-button-info {
   }
 }
 
+
+
 .parallax-container {
-  height: 500px;
+  height: 125vh;
 }
 
-.parallax-container-tall {
+.createBookheight {
   height: 1000px;
 }
 
+.alreadyRead { 
+  background: url("https://cdn.pixabay.com/photo/2017/05/16/21/45/coffee-2319107_960_720.jpg") no-repeat fixed center; 
+}
 
 

@@ -1,24 +1,45 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title>Create Book</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+    <title>Create Book | Page Turner</title>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
+
 <body>
-    <div>
-        <div class="card" style="width: 18rem;">
+    <!--Navbar-->
+    <div class="navbar-fixed">
+            <nav class="blue-grey darken-1 body">
+                <div class="container">
+                    <div class="nav-wrapper header">
+                        <a href="#" class="brand-logo"></a>
+                        <ul class="right hide-on-med-and-down" id="navList">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href= "create_book.html">Create a Book</a></li>
+                            <li><a href="book_status.html">Go to Your Library</a></li>
+                            <li><a href="#">Your Bookmarks</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    <!--submit form container-->
+    <div class = "section" id="landingCreate">
+              <h5 id="mainText" class="center"></h5>
+              <h1 style="color: #455a64"  class="center">
+                  CREATE NEW<b> <i>BOOK</i></b>
+              </h1>
+                <div class="row center">
+                      <!--New book card-->
+                <div class = "container valign-wrapper">
+                        <div class="col s12 offset-s4">
+                      <div class="card blue-grey darken-1 center" style="width: 18rem;">
             <div class="card-body">
                 <div>
                     <input type="text" class="form-control" id="title" placeholder="Book Title">
@@ -33,38 +54,44 @@
                     <input type="text" class="form-control" id="genre" placeholder="Genre">
                 </div>
                 <div>
-                    <input type="text" class="form-control" id="numberOfPages" placeholder="Number of Pages">
+                    <input type="text" class="form-control" id="numberOfPages" placeholder="Page Count">
                 </div>
                 <div>
                     <input type="text" class="form-control" id="comments" placeholder="Comments">
                 </div>
                 <div>
-                    <input type="text" class="form-control" id="rating" placeholder="Rating">
+                    <input type="number" class="form-control" id="rating" placeholder="Rating (1 to 5)" min="1" max="5">
                 </div>
             </div>
-            <button type="button" class="btn btn-primary" id="createnewbutton">Create New</button>
+
+            <br>
+            <button type="button" class="btn-large waves-effect waves-light blue-grey lighten-1 fas fa-plus"
+                id="createnewbutton"> Create New</button>
+                <br>
+                <br>
+            <button onclick="gotoLibrary()" type="button" class="btn-large waves-effect waves-light blue-grey lighten-1 fas fa-arrow-right"
+                id="gotolibrarybutton"> Go to Your Library</button>
+                <br>
         </div>
-    </div>
-    <div>
-        <table class="table table-sm">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Autho</th>
-                    <th scope="col">Genre</th>
-                    <th scope="col">Pages</th>
-                    <th scope="col">Comments</th>
-                    <th scope="col">Rating</th>
-                </tr>
-            </thead>
-            <tbody id="tableBody">
-            </tbody>
-        </table>
-    </div>
+        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>      
+        </div>
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="js/book_service.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script>
+    
+    function gotoLibrary() {
+  window.open("book_status.html");
+}
+
         (() => {
             const bookService = new BookService();
             if (!bookService.loggedIn()) {
@@ -130,6 +157,7 @@
                     });
             });
         })();
+
     </script>
 </body>
 

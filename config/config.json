@@ -1,14 +1,14 @@
 {
   "development": {
     "username": "root",
-    "password": null,
+    "password": "brandy978",
     "database": "pageturner_db",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": "omologator",
+    "password": "brandy978",
     "database": "pageturner_db",
     "host": "localhost",
     "dialect": "mysql",
