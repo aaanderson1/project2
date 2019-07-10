@@ -14,16 +14,18 @@ you can navigate to the Library page to add your book(s) to one of three section
 
 ## Future Improvements
 
-* Upload and save images of book covers, social media images, etc. and compressing them. 
+* A "bookmark" page that allows users to save time-stamped comments on specific pages.
+* Uploading and saving images of book covers, social media images, etc.
 * More "community functionality", including sharing and leaving comments on other users' books.
 * Audible API integration
 * Comment dictation through integrating with mobile speech-to-text
 * Real time calculation of percentage of completion of book
 * CSS on login page
 * Hide password characters 
-* ability to logout
+* Logout function
 
 ## Built With:
+
 * Materialize
 * Sequelize
 * JQuery
