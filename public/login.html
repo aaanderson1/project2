@@ -1,16 +1,71 @@
 <!DOCTYPE html>
 <html>
-
+        <head>
+                <title>Login | Page Turner</title>
+                <meta charset="UTF-8">
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+                <link rel="stylesheet" href="styles/styles.css">
+                <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+                 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+                 <script src="js/book_service.js"></script>
+                 <script src="js/index.js"></script>
+            </head>
 <body>
+    <!--Navbar-->
+    <div class="navbar-fixed">
+            <nav class="blue-grey darken-1 body">
+                <div class="container">
+                    <div class="nav-wrapper header">
+                        <a href="#" class="brand-logo"></a>
+                        <ul class="right hide-on-med-and-down" id="navList">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href= "create_book.html">Create a Book</a></li>
+                            <li><a href="book_status.html">Go to Your Library</a></li>
+                            <!--<li><a href="#">Your Bookmarks</a></li>-->
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
     <div>
-        <div><input type="text" class="form-control" id="name" placeholder="name (only for create)"></div>
-        <div><input type="text" class="form-control" id="username" placeholder="username"></div>
-        <div><input type="text" class="form-control" id="password" placeholder="password"></div>
-    </div>
-    <button type="button" class="btn-large waves-effect waves-light blue-grey darken-1 fas fa-plus"
-        id="createnewbutton">Create New</button>
-    <button type="button" class="btn-large waves-effect waves-light blue-grey darken-1 fas fa-plus"
-        id="loginbutton">Login</button>
+        <!--Header-->
+        <div class = "section" id="landingCreate">
+                <h5 id="mainText" class="center"></h5>
+                <h1 style="color: #455a64"  class="center">
+                        PAGE TURNER<b> <i>LOGIN</i></b>
+            <div class="row">
+                <br>
+                <div class="wrapperlogin">
+                    <div class="card blue-grey darken-1">
+                    <div class="container">
+                        
+                            
+                                <div><input type="text" class="form-control" id="name" placeholder="name (only for create)"></div>
+                                <div><input type="text" class="form-control" id="username" placeholder="username"></div>
+                                <div><input type="text" class="form-control" id="password" placeholder="password"></div>
+                            
+                    <button type="button" class="btn-large waves-effect waves-light blue-grey darken-1 fas fa-plus"
+                    id="createnewbutton"> Create New</button>
+                    <button type="button" class="btn-large waves-effect waves-light blue-grey darken-1 fas fa-plus"
+                    id="loginbutton"> Login</button>
+                    
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--footer-->
+    <footer class="footer blue-grey darken-1">
+            <div class="footer">
+              <div class="container center footertext">
+              © 2019 Copyright Jenny Ivy, Allison Anderson, Francisco Cagnoni
+              <a class="grey-text text-lighten-4 right footertextgit" href="https://github.com/aaanderson1/project2" target="_blank">View on Github</a>
+              </div>
+            </div>
+          </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="js/book_service.js"></script>
     <script>
