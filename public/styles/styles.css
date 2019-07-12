@@ -65,6 +65,19 @@
 
 }
 
+.wrapperlogin{
+  width: 500px;
+  height: 475px;
+  background-color: #90a4ae;
+  margin: 0 auto;
+  padding: 20px;
+  clear: both;
+  overflow: hidden;
+  border-style: solid 50px;
+  border-color: #dddddd;
+
+}
+
 hr.withstyle { 
   height: 30px; 
   border-style: solid; 
