@@ -2,6 +2,8 @@
 
 ## Group Project 2 : Allison - Francisco - Jenny
 
+![screenshot](public/images/screenshotpageturner.png)
+
 [PageTurner](https://pageturner.herokuapp.com/) is a web app that allows users to keep track of books they are reading,
 want to read, or have already read. 
 
